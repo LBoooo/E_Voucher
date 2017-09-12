@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="white">#FFFFFFFF</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="light_grey">#EEBBBBBB</color>
+
+    <color name="grey">#FF333333</color>
+    <color name="scan_corner_color">#0effc2</color>
+    <color name="green">#FFAAFF00</color>
+    <color name="black">#FF000000</color>
+    <color name="light_red">#ffff4444</color>
+
+    <color name="title_backdrop">#ff373a41</color>
+    <color name="main_backdrop">#ff6a6e77</color>
+    <color name="main_shop_backdrop">#ff404349</color>
+    <color name="backdrop">#fff0eff4</color>
+    <color name="red">#ffff0019</color>
+    <color name="trapezoid_backdrop">#fff0fcf8</color>
+
+
+</resources>

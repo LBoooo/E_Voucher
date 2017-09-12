@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+
+    android:orientation="vertical">
+
+    <include layout="@layout/title_view"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="30px">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="100px"
+
+            android:text="e券惠商家登录界面"
+            android:textSize="20sp"/>
+
+
+        <LinearLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="100px"
+            android:orientation="horizontal"
+            android:layout_marginTop="100px">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="账号"/>
+
+            <EditText
+                android:id="@+id/accountEt"
+                android:background="@color/transparent"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="100px"
+                android:layout_weight="1"/>
+
+
+        </LinearLayout>
+
+        <View
+            style="@style/line"/>
+        <LinearLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="100px"
+            android:orientation="horizontal"
+            android:layout_marginTop="30px">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="密码"/>
+
+            <EditText
+                android:inputType="textPassword"
+                android:id="@+id/passwordEt"
+                android:background="@color/transparent"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="100px"
+                android:layout_weight="1"/>
+
+            <ImageView
+                android:id="@+id/cleanPswImg"
+                android:src="@color/colorAccent"
+                android:layout_width="50px"
+                android:layout_height="50px"/>
+
+        </LinearLayout>
+        <View
+            style="@style/line"/>
+
+        <Button
+            android:text="登录"
+            android:id="@+id/loginBtn"
+            android:layout_marginTop="100px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+</LinearLayout>

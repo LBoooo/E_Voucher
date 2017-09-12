@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <include layout="@layout/title_view"/>
+
+    <View
+        style="@style/line"/>
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="180px"
+        android:background="@color/white"
+        app:tabIndicatorColor="@android:color/holo_red_light"
+        app:tabIndicatorHeight="5px"
+        app:tabSelectedTextColor="@android:color/holo_red_light"
+        app:tabTextColor="@color/black"/>
+
+    <View
+        style="@style/line"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="20px">
+
+        <View
+            android:layout_width="0px"
+            android:layout_height="0px"
+            android:layout_weight="1"/>
+
+        <View
+
+            android:layout_width="300px"
+            android:layout_height="match_parent"
+            android:background="@color/bg_color"/>
+
+        <View
+            android:layout_width="0px"
+            android:layout_height="0px"
+            android:layout_weight="2"/>
+
+        <Button
+            android:id="@+id/dateSelectBtn"
+            android:layout_width="200px"
+            android:layout_height="match_parent"
+            android:background="@color/bg_color"
+            android:text="日期选择"
+            android:textSize="13sp"/>
+
+        <View
+            android:layout_width="0px"
+            android:layout_height="0px"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+    <View
+        style="@style/line"/>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"/>
+
+</LinearLayout>

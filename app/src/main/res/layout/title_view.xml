@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="100px"
+                android:id="@+id/titleBackdropView"
+                android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/titleBackImg"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:adjustViewBounds="true"
+        android:padding="20px"
+        android:scaleType="centerInside"
+        android:src="@mipmap/ic_launcher"/>
+
+    <ImageView
+        android:id="@+id/verticalLineImg"
+        android:layout_width="1px"
+        android:layout_height="match_parent"
+        android:layout_toRightOf="@+id/titleBackImg"
+        android:background="@color/light_grey"
+        android:layout_margin="20px"/>
+
+    <TextView
+        android:textColor="@color/black"
+        android:id="@+id/titleTextTv"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toRightOf="@+id/verticalLineImg"
+        android:gravity="center"
+        android:padding="20px"
+        android:text="标题"
+        android:textSize="18sp"/>
+
+    <ImageView
+        android:id="@+id/titleMoreImg"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:adjustViewBounds="true"
+        android:padding="20px"
+        android:scaleType="centerInside"
+        android:src="@mipmap/ic_launcher"/>
+</RelativeLayout>

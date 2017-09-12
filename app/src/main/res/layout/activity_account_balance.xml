@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <include layout="@layout/title_view"/>
+
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="200px"
+            android:background="@color/white"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/userBalanceTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:text="409元"
+                android:textSize="30sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/userBalanceTv"
+                android:layout_centerHorizontal="true"
+                android:text="当前余额"/>
+        </RelativeLayout>
+
+
+        <View
+            style="@style/line"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:padding="30px">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20px"
+                android:text="充值金额"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_frame_bg"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="10px">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="20px"
+                    android:paddingRight="20px"
+                    android:text="¥"
+                    android:textSize="20sp"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="80px"
+                    android:background="@color/transparent"
+                    android:hint="请输入充值金额"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="30px">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="充值"/>
+
+            <TextView
+                android:id="@+id/billDetailsTv"
+                android:padding="10px"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="账单明细>>>"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.evoucher.accv.e_voucher">
+
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:name=".application.AppApplication"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <!-- 设计稿尺寸 start-->
+        <meta-data android:name="design_width" android:value="768"/>
+
+        <meta-data android:name="design_height" android:value="1280"/>
+        <!-- 设计稿尺寸 end-->
+        <activity android:name=".view.MainActivity"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <!--<activity android:name=".view.MainActivity"/>-->
+        <activity android:name=".view.ScanCodeActivity"/>
+        <activity android:name=".view.CodeVerificationActivity"/>
+        <activity android:name=".view.AccountBalanceActivity"/>
+        <activity android:name=".view.BillDetailsActivity"/>
+        <activity android:name=".view.ValidationHistoryActivity"/>
+        <activity android:name=".view.EffectMonitoringActivity"/>
+    </application>
+
+</manifest>
