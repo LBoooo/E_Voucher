@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -16,6 +17,7 @@ import android.widget.Toast;
 
 import com.evoucher.accv.e_voucher.R;
 import com.evoucher.accv.e_voucher.utils.PermissionHelper;
+import com.evoucher.accv.e_voucher.utils.SystemUtils;
 import com.uuzuche.lib_zxing.activity.CodeUtils;
 import com.zhy.autolayout.utils.AutoUtils;
 
@@ -32,15 +34,9 @@ import org.xutils.x;
 @ContentView(R.layout.activity_main)
 public class MainActivity extends BaseActivity {
     @ViewInject(R.id.mainRv)
-    RecyclerView mainRv;
-    MainRecyclerViewAdapter adapter;
-    /**
-     * 扫描跳转Activity RequestCode
-     */
-    public static final int REQUEST_CODE = 0x001;
-    
-    
-    Dialog dialog ;
+    private RecyclerView mainRv;
+    private MainRecyclerViewAdapter adapter;
+    private static final int REQUEST_CODE = 0x001;
     
     @Override
     protected void initData() {
@@ -49,18 +45,11 @@ public class MainActivity extends BaseActivity {
         mainRv.setLayoutManager(new LinearLayoutManager(this));
         adapter = new MainRecyclerViewAdapter();
         mainRv.setAdapter(adapter);
-        
-        dialog = new Dialog(this);
-        dialog.setContentView(R.layout.dialog_call_salesman);
-        dialog.setCanceledOnTouchOutside(true);
     }
     
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        /**
-         * 处理二维码扫描结果
-         */
         if (requestCode == REQUEST_CODE) {
             //处理扫描结果（在界面上显示）
             if (null != data) {
@@ -77,7 +66,6 @@ public class MainActivity extends BaseActivity {
             }
         }
     }
-    
     
     private class MainRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         private final static int TYPE00 = 0x00;
@@ -129,7 +117,17 @@ public class MainActivity extends BaseActivity {
                     case TYPE02:
                         MainViewHolder2 holder2 = (MainViewHolder2) holder;
                         
-                        
+                        holder2.tv0.setBackdropColor(ContextCompat.getColor(getContext(),R.color.st_blue));
+                        holder2.tv0.setProgress(500);
+                        holder2.tv0.setText("曝光人数", "1234", "234");
+    
+                        holder2.tv1.setBackdropColor(ContextCompat.getColor(getContext(),R.color.wt_blue));
+                        holder2.tv1.setProgress(450);
+                        holder2.tv1.setText("领券人数", "234", "34");
+    
+                        holder2.tv2.setBackdropColor(ContextCompat.getColor(getContext(),R.color.lt_blue));
+                        holder2.tv2.setProgress(400);
+                        holder2.tv2.setText("核销人数", "34", "4");
                         break;
                     case TYPE03:
                         MainViewHolder3 holder3 = (MainViewHolder3) holder;
@@ -197,18 +195,32 @@ public class MainActivity extends BaseActivity {
             }
         }
         
-        
         private class MainViewHolder2 extends RecyclerView.ViewHolder {
+            @ViewInject(R.id.tv0)
+            TrapezoidView tv0;
+            @ViewInject(R.id.tv1)
+            TrapezoidView tv1;
+            @ViewInject(R.id.tv2)
+            TrapezoidView tv2;
+            
             
             public MainViewHolder2(View itemView) {
                 super(itemView);
                 AutoUtils.autoSize(itemView);
             }
+            
+            @Event(value = {R.id.moreEffectTv})
+            private void onClick(View view) {
+                switch (view.getId()) {
+                    case R.id.moreEffectTv:
+                        startActivity(new Intent(MainActivity.this, EffectMonitoringActivity.class));
+                        break;
+                }
+            }
         }
         
         private class MainViewHolder3 extends RecyclerView.ViewHolder {
-            @ViewInject(R.id.mainCallSalesmanView)
-            View mainCallSalesmanView;
+            String phone = "XXXXXXXXXXX";
             
             public MainViewHolder3(View itemView) {
                 super(itemView);
@@ -219,7 +231,12 @@ public class MainActivity extends BaseActivity {
             private void onCLick(View view) {
                 switch (view.getId()) {
                     case R.id.mainCallSalesmanView:
-                        dialog.show();
+                        new CallDialog().setListener(new CallDialog.onDialogClickListener() {
+                            @Override
+                            public void onCallListener() {
+                                SystemUtils.call(phone, getContext());
+                            }
+                        }).show(getFragmentManager(), "");
                         break;
                 }
             }
@@ -247,7 +264,6 @@ public class MainActivity extends BaseActivity {
         } else {
             return super.onKeyDown(keyCode, event);
         }
-        
     }
     
     /**

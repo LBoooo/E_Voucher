@@ -32,4 +32,9 @@ public class BillPresenter implements BillContract.Presenter {
     public void onObtainBillFail() {
         view.onObtainBillFail();
     }
+    
+    @Override
+    public void onFinish() {
+        view.onObtainBillFinish();
+    }
 }

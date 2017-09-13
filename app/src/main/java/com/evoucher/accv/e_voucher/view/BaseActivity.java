@@ -1,19 +1,14 @@
 package com.evoucher.accv.e_voucher.view;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AlertDialog;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.evoucher.accv.e_voucher.R;
 import com.zhy.autolayout.AutoLayoutActivity;
-
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
@@ -33,6 +28,8 @@ public abstract class BaseActivity extends AutoLayoutActivity {
     View verticalLineImg;
     @ViewInject(R.id.titleBackdropView)
     View titleBackdropView;
+    
+    
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +42,7 @@ public abstract class BaseActivity extends AutoLayoutActivity {
     protected Context getContext() {
         return this;
     }
-    
+   
     protected void setTitleBackdrop(int color){
         titleBackdropView.setBackgroundColor(color);
     }
@@ -87,4 +84,8 @@ public abstract class BaseActivity extends AutoLayoutActivity {
             titleMoreImg.setImageResource(res);
         }
     }
+    
+    
+    
+    
 }

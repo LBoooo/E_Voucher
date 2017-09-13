@@ -36,6 +36,7 @@ public class VHPageFragment extends BaseFragment {
     protected void initData() {
         mPage = getArguments().getInt(ARG_PAGE);
     
+        // 取消贼丑的箭头
         vhListView.setGroupIndicator(null);
     
         vhListView.setAdapter(new VHPageListAdapter(getContext()));

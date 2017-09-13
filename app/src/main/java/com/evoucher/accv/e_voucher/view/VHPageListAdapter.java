@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.evoucher.accv.e_voucher.R;
+import com.evoucher.accv.e_voucher.view.w.ExpandIconView;
 import com.zhy.autolayout.utils.AutoUtils;
 
 import org.xutils.view.annotation.ViewInject;
@@ -95,10 +96,11 @@ public class VHPageListAdapter extends AnimatedExpandableListView.AnimatedExpand
             holder = (GroupHolder) view.getTag();
         }
         if(b){
-            holder.rightImg.setImageResource(R.mipmap.ic_launcher_round);
-        }else{
             holder.rightImg.setImageResource(R.mipmap.ic_launcher);
+        }else{
+            holder.rightImg.setImageResource(R.mipmap.ic_launcher_round);
         }
+        
         holder.itemGroupTitleTv.setText("XXX店");
         return view;
     }

@@ -6,7 +6,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import org.xutils.x;
 
 
@@ -17,7 +16,7 @@ import org.xutils.x;
 public abstract class BaseFragment extends Fragment {
 
     private boolean injected = false;
-
+    
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         injected = true;
@@ -39,4 +38,5 @@ public abstract class BaseFragment extends Fragment {
     }
     
     protected abstract void initData();
+    
 }

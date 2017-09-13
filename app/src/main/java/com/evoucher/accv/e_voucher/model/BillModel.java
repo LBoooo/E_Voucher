@@ -21,15 +21,20 @@ public class BillModel implements BillContract.Model {
     private void obtainBillOnHttp(final BillContract.Presenter presenter) {
         RequestParams params = new RequestParams("url");
 //        params.addBodyParameter();
-        new XHttp().post(params, new XHttp.HttpCallBack() {
+        XHttp.post(params, new XHttp.HttpCallBack() {
             @Override
-            public void onSuccess(String result) {
+            public void onResponse(String result) {
                 presenter.onObtainBillSuccess();
             }
     
             @Override
             public void onError() {
                 presenter.onObtainBillFail();
+            }
+    
+            @Override
+            public void onFinish() {
+                presenter.onFinish();
             }
         });
     }

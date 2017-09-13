@@ -7,7 +7,7 @@
     <TextView
         android:id="@+id/shopNameTv"
         android:layout_width="match_parent"
-        android:layout_height="50px"
+        android:layout_height="70px"
         android:background="@color/main_shop_backdrop"
         android:gravity="center"
         android:text="森马杭州世纪联华运河广场店"

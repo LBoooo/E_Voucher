@@ -44,4 +44,9 @@ public class BillDetailsActivity extends BaseActivity implements BillContract.Vi
     public void onObtainBillFail() {
         Toast.makeText(this, "获取数据失败", Toast.LENGTH_SHORT).show();
     }
+    
+    @Override
+    public void onObtainBillFinish() {
+        
+    }
 }

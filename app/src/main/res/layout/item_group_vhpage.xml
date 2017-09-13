@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
               android:padding="20px"
               android:gravity="center_vertical"
               android:orientation="horizontal">
@@ -28,4 +29,17 @@
         android:layout_width="50px"
         android:layout_height="50px"
         android:src="@color/bg_color"/>
+
+    <!--<com.evoucher.accv.e_voucher.view.w.ExpandIconView-->
+        <!--android:layout_marginLeft="20px"-->
+        <!--android:id="@+id/rightImg"-->
+        <!--android:layout_width="50px"-->
+        <!--android:layout_height="50px"-->
+        <!--app:eiv_animationDuration="300"-->
+        <!--app:eiv_color="@color/title_backdrop"-->
+        <!--app:eiv_padding="10px"-->
+        <!--app:eiv_roundedCorners="false"-->
+        <!--app:eiv_switchColor="false"/>-->
+        <!--app:eiv_colorLess="@color/title_backdrop"-->
+        <!--app:eiv_colorMore="@color/title_backdrop"-->
 </LinearLayout>

@@ -15,6 +15,8 @@ public interface BillContract {
         void onObtainBillSuccess();
         
         void onObtainBillFail();
+        
+        void onObtainBillFinish();
     }
     
     interface Presenter {
@@ -23,5 +25,7 @@ public interface BillContract {
         void onObtainBillSuccess();
     
         void onObtainBillFail();
+        
+        void onFinish();
     }
 }

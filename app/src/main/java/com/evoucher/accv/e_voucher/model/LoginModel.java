@@ -32,7 +32,7 @@ public class LoginModel implements LoginContract.Model {
         rp.addBodyParameter("code","");
         new XHttp().post(rp, new XHttp.HttpCallBack() {
             @Override
-            public void onSuccess(String result) {
+            public void onResponse(String result) {
                 Log.d("LoginModel", result);
                 listener.loginSuccess();
             }
@@ -40,6 +40,11 @@ public class LoginModel implements LoginContract.Model {
             @Override
             public void onError() {
                 listener.loginFail();
+            }
+    
+            @Override
+            public void onFinish() {
+        
             }
         });
     }
@@ -50,13 +55,18 @@ public class LoginModel implements LoginContract.Model {
         rp.addBodyParameter("",password);
         new XHttp().post(rp, new XHttp.HttpCallBack() {
             @Override
-            public void onSuccess(String result) {
+            public void onResponse(String result) {
                 listener.signSuccess();
             }
         
             @Override
             public void onError() {
                 listener.signFail();
+            }
+    
+            @Override
+            public void onFinish() {
+        
             }
         });
     }

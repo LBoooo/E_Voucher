@@ -1,49 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="wrap_content">
+              android:layout_height="wrap_content"
+              android:background="@drawable/dialog_bg_wr"
+              android:orientation="vertical">
 
     <LinearLayout
-        android:orientation="vertical"
-        android:padding="40px"
+
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
         <LinearLayout
-
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="50px">
 
             <TextView
-                android:textColor="@color/black"
-                android:textSize="18sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="业务经理:XXX"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:textColor="@color/black"
+                android:textSize="17sp"/>
 
             <TextView
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:text="联系电话:XXXXXXXXXXX"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:text="联系电话:XXXXXXXXXXX"
+                android:textColor="@color/black"
+                android:textSize="17sp"/>
         </LinearLayout>
 
+        <View
+            style="@style/line"/>
+
         <LinearLayout
-            android:paddingTop="30px"
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="80px"
+            android:orientation="horizontal">
 
             <Button
-                android:layout_weight="1"
+                android:id="@+id/cancelBtn"
+                android:text="取消"
+                android:layout_marginLeft="10px"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/white"/>
+
+            <View
+                android:background="@color/light_grey"
+                android:layout_width="1px"
+                android:layout_height="match_parent"/>
+
             <Button
-                android:layout_weight="1"
+                android:id="@+id/callBtn"
+                android:text="呼叫"
+                android:textColor="@color/red"
+                android:layout_marginRight="10px"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/white"/>
         </LinearLayout>
     </LinearLayout>
 

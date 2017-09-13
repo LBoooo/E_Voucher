@@ -22,4 +22,7 @@
     <color name="trapezoid_backdrop">#fff0fcf8</color>
 
 
+    <color name="st_blue">#fff0fcf8</color>
+    <color name="wt_blue">#ffe5fbf8</color>
+    <color name="lt_blue">#ffd0f3ec</color>
 </resources>
