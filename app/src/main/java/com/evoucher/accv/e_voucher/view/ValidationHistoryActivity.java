@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.evoucher.accv.e_voucher.R;
+import com.evoucher.accv.e_voucher.view.w.AutoTabLayout;
 
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.Event;
@@ -27,7 +28,7 @@ import org.xutils.view.annotation.ViewInject;
 @ContentView(R.layout.activity_validation_history)
 public class ValidationHistoryActivity extends BaseActivity {
     @ViewInject(R.id.tabLayout)
-    TabLayout tabLayout;
+    AutoTabLayout tabLayout;
     @ViewInject(R.id.viewPager)
     ViewPager viewPager;
     @ViewInject(R.id.dateSelectBtn)

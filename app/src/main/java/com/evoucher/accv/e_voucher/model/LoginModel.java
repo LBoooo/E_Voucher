@@ -30,7 +30,7 @@ public class LoginModel implements LoginContract.Model {
         rp.addBodyParameter("username",account);
         rp.addBodyParameter("password",password);
         rp.addBodyParameter("code","");
-        new XHttp().post(rp, new XHttp.HttpCallBack() {
+        XHttp.post(rp, new XHttp.HttpCallBack() {
             @Override
             public void onResponse(String result) {
                 Log.d("LoginModel", result);
@@ -53,7 +53,7 @@ public class LoginModel implements LoginContract.Model {
         RequestParams rp = new RequestParams("url");
         rp.addBodyParameter("",account);
         rp.addBodyParameter("",password);
-        new XHttp().post(rp, new XHttp.HttpCallBack() {
+        XHttp.post(rp, new XHttp.HttpCallBack() {
             @Override
             public void onResponse(String result) {
                 listener.signSuccess();

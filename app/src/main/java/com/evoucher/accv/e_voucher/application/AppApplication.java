@@ -5,6 +5,7 @@ import android.app.Application;
 import com.evoucher.accv.e_voucher.BuildConfig;
 import com.evoucher.accv.e_voucher.utils.DatabaseHelper;
 import com.evoucher.accv.e_voucher.utils.PermissionHelper;
+import com.evoucher.accv.e_voucher.utils.SmartRefreshUtils;
 import com.uuzuche.lib_zxing.activity.ZXingLibrary;
 import com.zhy.autolayout.config.AutoLayoutConifg;
 
@@ -30,6 +31,6 @@ public class AppApplication extends Application {
         
         DatabaseHelper.getInstance().init(); // 初始化数据库
     
-        
+        new SmartRefreshUtils();
     }
 }

@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.evoucher.accv.e_voucher.R;
-import com.evoucher.accv.e_voucher.view.w.ExpandIconView;
+import com.evoucher.accv.e_voucher.view.w.AnimatedExpandableListView;
 import com.zhy.autolayout.utils.AutoUtils;
 
 import org.xutils.view.annotation.ViewInject;

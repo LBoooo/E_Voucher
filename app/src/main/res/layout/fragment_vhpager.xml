@@ -5,7 +5,7 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <com.evoucher.accv.e_voucher.view.AnimatedExpandableListView
+    <com.evoucher.accv.e_voucher.view.w.AnimatedExpandableListView
         android:id="@+id/vhListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

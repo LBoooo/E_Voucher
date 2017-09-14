@@ -92,17 +92,17 @@
 
         </LinearLayout>
 
-        <com.evoucher.accv.e_voucher.view.TrapezoidView
+        <com.evoucher.accv.e_voucher.view.w.TrapezoidView
             android:id="@+id/tv0"
             android:layout_width="wrap_content"
             android:layout_height="100px"/>
 
-        <com.evoucher.accv.e_voucher.view.TrapezoidView
+        <com.evoucher.accv.e_voucher.view.w.TrapezoidView
             android:id="@+id/tv1"
             android:layout_width="wrap_content"
             android:layout_height="100px"/>
 
-        <com.evoucher.accv.e_voucher.view.TrapezoidView
+        <com.evoucher.accv.e_voucher.view.w.TrapezoidView
             android:id="@+id/tv2"
             android:layout_width="wrap_content"
             android:layout_height="100px"/>

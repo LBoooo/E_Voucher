@@ -5,6 +5,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.evoucher.accv.e_voucher.R;
+import com.evoucher.accv.e_voucher.utils.ToastUtil;
 
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.Event;
@@ -64,7 +65,7 @@ public class CodeVerificationActivity extends BaseActivity {
 //                break;
 //
             case R.id.hxTv:
-                Toast.makeText(this, "核销", Toast.LENGTH_SHORT).show();
+                ToastUtil.showToast(this , "核销");
                 break;
             default:
                 appendText(((TextView)view).getText().toString());

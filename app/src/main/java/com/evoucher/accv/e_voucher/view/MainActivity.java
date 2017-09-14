@@ -1,6 +1,5 @@
 package com.evoucher.accv.e_voucher.view;
 
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,11 +12,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.evoucher.accv.e_voucher.R;
 import com.evoucher.accv.e_voucher.utils.PermissionHelper;
 import com.evoucher.accv.e_voucher.utils.SystemUtils;
+import com.evoucher.accv.e_voucher.utils.ToastUtil;
+import com.evoucher.accv.e_voucher.view.w.TrapezoidView;
 import com.uuzuche.lib_zxing.activity.CodeUtils;
 import com.zhy.autolayout.utils.AutoUtils;
 
@@ -45,6 +45,7 @@ public class MainActivity extends BaseActivity {
         mainRv.setLayoutManager(new LinearLayoutManager(this));
         adapter = new MainRecyclerViewAdapter();
         mainRv.setAdapter(adapter);
+        
     }
     
     @Override
@@ -59,9 +60,9 @@ public class MainActivity extends BaseActivity {
                 }
                 if (bundle.getInt(CodeUtils.RESULT_TYPE) == CodeUtils.RESULT_SUCCESS) {
                     String result = bundle.getString(CodeUtils.RESULT_STRING);
-                    Toast.makeText(this, "解析结果:" + result, Toast.LENGTH_LONG).show();
+                    ToastUtil.showToast(this, "解析结果:" + result);
                 } else if (bundle.getInt(CodeUtils.RESULT_TYPE) == CodeUtils.RESULT_FAILED) {
-                    Toast.makeText(MainActivity.this, "解析二维码失败", Toast.LENGTH_LONG).show();
+                    ToastUtil.showToast(this, "解析二维码失败");
                 }
             }
         }
@@ -117,17 +118,21 @@ public class MainActivity extends BaseActivity {
                     case TYPE02:
                         MainViewHolder2 holder2 = (MainViewHolder2) holder;
                         
-                        holder2.tv0.setBackdropColor(ContextCompat.getColor(getContext(),R.color.st_blue));
+                        holder2.tv0.setBackdropColor(ContextCompat.getColor(getContext(), R.color.st_blue));
+                        holder2.tv0.setSize(30 , new int[]{30,40,30} , new int[]{0,100,50});
                         holder2.tv0.setProgress(500);
                         holder2.tv0.setText("曝光人数", "1234", "234");
-    
-                        holder2.tv1.setBackdropColor(ContextCompat.getColor(getContext(),R.color.wt_blue));
+                      
+                        holder2.tv1.setBackdropColor(ContextCompat.getColor(getContext(), R.color.wt_blue));
+                        holder2.tv1.setSize(30 , new int[]{30,40,30} , new int[]{0,100,50});
                         holder2.tv1.setProgress(450);
                         holder2.tv1.setText("领券人数", "234", "34");
-    
-                        holder2.tv2.setBackdropColor(ContextCompat.getColor(getContext(),R.color.lt_blue));
+                       
+                        holder2.tv2.setBackdropColor(ContextCompat.getColor(getContext(), R.color.lt_blue));
+                        holder2.tv2.setSize(30 , new int[]{30,40,30} , new int[]{0,100,50});
                         holder2.tv2.setProgress(400);
                         holder2.tv2.setText("核销人数", "34", "4");
+                        
                         break;
                     case TYPE03:
                         MainViewHolder3 holder3 = (MainViewHolder3) holder;

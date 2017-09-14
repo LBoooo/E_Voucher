@@ -1,45 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              android:padding="20px"
-              android:gravity="center_vertical"
-              android:orientation="horizontal">
-
+<com.zhy.autolayout.AutoLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="20px">
 
 
     <ImageView
         android:id="@+id/leftImg"
-        android:layout_marginLeft="20px"
         android:layout_width="50px"
         android:layout_height="50px"
+        android:layout_marginLeft="20px"
         android:src="@color/bg_color"/>
 
     <TextView
-        android:layout_weight="1"
-        android:paddingLeft="20px"
         android:id="@+id/itemGroupTitleTv"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:paddingLeft="20px"/>
 
     <ImageView
         android:id="@+id/rightImg"
-        android:layout_marginLeft="20px"
         android:layout_width="50px"
         android:layout_height="50px"
+        android:layout_marginLeft="20px"
         android:src="@color/bg_color"/>
 
     <!--<com.evoucher.accv.e_voucher.view.w.ExpandIconView-->
-        <!--android:layout_marginLeft="20px"-->
-        <!--android:id="@+id/rightImg"-->
-        <!--android:layout_width="50px"-->
-        <!--android:layout_height="50px"-->
-        <!--app:eiv_animationDuration="300"-->
-        <!--app:eiv_color="@color/title_backdrop"-->
-        <!--app:eiv_padding="10px"-->
-        <!--app:eiv_roundedCorners="false"-->
-        <!--app:eiv_switchColor="false"/>-->
-        <!--app:eiv_colorLess="@color/title_backdrop"-->
-        <!--app:eiv_colorMore="@color/title_backdrop"-->
-</LinearLayout>
+    <!--android:layout_marginLeft="20px"-->
+    <!--android:id="@+id/rightImg"-->
+    <!--android:layout_width="50px"-->
+    <!--android:layout_height="50px"-->
+    <!--app:eiv_animationDuration="300"-->
+    <!--app:eiv_color="@color/title_backdrop"-->
+    <!--app:eiv_padding="10px"-->
+    <!--app:eiv_roundedCorners="false"-->
+    <!--app:eiv_switchColor="false"/>-->
+    <!--app:eiv_colorLess="@color/title_backdrop"-->
+    <!--app:eiv_colorMore="@color/title_backdrop"-->
+</com.zhy.autolayout.AutoLinearLayout>

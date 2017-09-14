@@ -31,4 +31,8 @@
         <item name="android:textColor">#a9b7b7</item>
         <item name="android:textSize">16sp</item>
     </style>
+
+    <declare-styleable name="AutoTabLayout">
+        <attr name="auto_textSize_base_width" format="boolean"/>
+    </declare-styleable>
 </resources>

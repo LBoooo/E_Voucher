@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.evoucher.accv.e_voucher.R;
 import com.evoucher.accv.e_voucher.utils.ImageUtil;
+import com.evoucher.accv.e_voucher.utils.ToastUtil;
 import com.uuzuche.lib_zxing.activity.CaptureFragment;
 import com.uuzuche.lib_zxing.activity.CodeUtils;
 
@@ -90,12 +91,12 @@ public  class ScanCodeActivity extends BaseActivity{
                     CodeUtils.analyzeBitmap(ImageUtil.getImageAbsolutePath(this, uri), new CodeUtils.AnalyzeCallback() {
                         @Override
                         public void onAnalyzeSuccess(Bitmap mBitmap, String result) {
-                            Toast.makeText(ScanCodeActivity.this, "解析结果:" + result, Toast.LENGTH_LONG).show();
+                            ToastUtil.showToast(ScanCodeActivity.this, "解析结果:" + result);
                         }
                     
                         @Override
                         public void onAnalyzeFailed() {
-                            Toast.makeText(ScanCodeActivity.this, "解析二维码失败", Toast.LENGTH_LONG).show();
+                            ToastUtil.showToast(ScanCodeActivity.this, "解析二维码失败");
                         }
                     });
                 } catch (Exception e) {

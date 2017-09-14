@@ -1,4 +1,4 @@
-package com.evoucher.accv.e_voucher.view;
+package com.evoucher.accv.e_voucher.view.w;
 
 import android.content.Context;
 import android.support.v7.widget.CardView;

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
  
-package com.evoucher.accv.e_voucher.view;
+package com.evoucher.accv.e_voucher.view.w;
 
 import android.annotation.SuppressLint;
 import android.content.Context;

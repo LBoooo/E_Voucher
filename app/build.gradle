@@ -36,4 +36,8 @@ dependencies {
     // 弹窗
     //    compile 'com.mylhyl:circleDialog:2.1.6'
     compile 'com.google.code.gson:gson:2.8.1'
+    // 下拉刷新 上拉加载
+    compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.3'
+    compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.3'//没有使用特殊Header，可以不加这行
+
 }

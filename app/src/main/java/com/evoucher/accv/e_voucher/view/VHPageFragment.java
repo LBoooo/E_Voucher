@@ -1,11 +1,11 @@
 package com.evoucher.accv.e_voucher.view;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ExpandableListView;
 
 import com.evoucher.accv.e_voucher.R;
+import com.evoucher.accv.e_voucher.view.w.AnimatedExpandableListView;
 
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;

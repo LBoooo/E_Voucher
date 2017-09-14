@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical">
 
     <include layout="@layout/title_view"/>
@@ -9,6 +10,9 @@
     <View
         style="@style/line"
         android:layout_height="3px"/>
+
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -74,7 +78,11 @@
     <View
         style="@style/line"
         android:layout_height="3px"/>
-
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/refreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srlEnableLoadmore="true">
     <ListView
         android:id="@+id/listView"
         android:layout_width="match_parent"
@@ -83,5 +91,5 @@
         android:divider="@color/transparent">
 
     </ListView>
-
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 </LinearLayout>

@@ -20,7 +20,8 @@ import com.evoucher.accv.e_voucher.R;
 
 public class CallDialog extends DialogFragment {
     private onDialogClickListener listener;
-    public  interface  onDialogClickListener{
+    
+    public interface onDialogClickListener {
         void onCallListener();
     }
     
@@ -30,7 +31,8 @@ public class CallDialog extends DialogFragment {
         View v = inflater.inflate(R.layout.dialog_call_salesman, container, false);
         getDialog().setCanceledOnTouchOutside(true);
         getDialog().requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        if (getDialog().getWindow() != null)
+            getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         Button call = v.findViewById(R.id.callBtn);
         Button cancel = v.findViewById(R.id.cancelBtn);
         call.setOnClickListener(new View.OnClickListener() {
@@ -51,7 +53,7 @@ public class CallDialog extends DialogFragment {
         return v;
     }
     
-    public CallDialog setListener(onDialogClickListener listener){
+    public CallDialog setListener(onDialogClickListener listener) {
         this.listener = listener;
         return this;
     }
