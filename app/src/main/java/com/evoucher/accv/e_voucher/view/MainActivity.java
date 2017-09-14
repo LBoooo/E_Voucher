@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.evoucher.accv.e_voucher.R;
 import com.evoucher.accv.e_voucher.utils.ImageUtil;
 import com.evoucher.accv.e_voucher.utils.PermissionHelper;
@@ -47,7 +48,7 @@ public class MainActivity extends BaseActivity {
         mainRv.setLayoutManager(new LinearLayoutManager(this));
         adapter = new MainRecyclerViewAdapter();
         mainRv.setAdapter(adapter);
-    
+        
         
     }
     
@@ -112,8 +113,11 @@ public class MainActivity extends BaseActivity {
                     case TYPE00:
                         MainViewHolder0 holder0 = (MainViewHolder0) holder;
                         holder0.shopNameTv.setText("XXXXXXXXXXXXX店");
-                        ImageUtil.loadImage("https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3269061743,2028437678&fm=27&gp=0.jpg" , holder0.scanCodeImg);
-                        ImageUtil.loadRoundImage("https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1743354301,1611657411&fm=27&gp=0.jpg" , holder0.enterCodeImg);
+                        ImageUtil.displayCircleImage("https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3269061743,2028437678&fm=27&gp=0.jpg",
+                                holder0.scanCodeImg, getContext());
+                        ImageUtil.displayRoundImage("https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1743354301,1611657411&fm=27&gp=0.jpg",
+                                holder0.enterCodeImg, 20f, getContext());
+                        
                         break;
                     case TYPE01:
                         MainViewHolder1 holder1 = (MainViewHolder1) holder;
@@ -124,17 +128,17 @@ public class MainActivity extends BaseActivity {
                         MainViewHolder2 holder2 = (MainViewHolder2) holder;
                         
                         holder2.tv0.setBackdropColor(ContextCompat.getColor(getContext(), R.color.st_blue));
-                        holder2.tv0.setSize(30 , new int[]{30,40,30} , new int[]{0,100,50});
+                        holder2.tv0.setSize(30, new int[]{30, 40, 30}, new int[]{0, 100, 50});
                         holder2.tv0.setProgress(500);
                         holder2.tv0.setText("曝光人数", "1234", "234");
-                      
+                        
                         holder2.tv1.setBackdropColor(ContextCompat.getColor(getContext(), R.color.wt_blue));
-                        holder2.tv1.setSize(30 , new int[]{30,40,30} , new int[]{0,100,50});
+                        holder2.tv1.setSize(30, new int[]{30, 40, 30}, new int[]{0, 100, 50});
                         holder2.tv1.setProgress(450);
                         holder2.tv1.setText("领券人数", "234", "34");
-                       
+                        
                         holder2.tv2.setBackdropColor(ContextCompat.getColor(getContext(), R.color.lt_blue));
-                        holder2.tv2.setSize(30 , new int[]{30,40,30} , new int[]{0,100,50});
+                        holder2.tv2.setSize(30, new int[]{30, 40, 30}, new int[]{0, 100, 50});
                         holder2.tv2.setProgress(400);
                         holder2.tv2.setText("核销人数", "34", "4");
                         

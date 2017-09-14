@@ -3,13 +3,22 @@ package com.evoucher.accv.e_voucher.utils;
 import android.annotation.TargetApi;
 import android.content.ContentUris;
 import android.content.Context;
+import android.content.res.Resources;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapShader;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.RectF;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
+import com.bumptech.glide.load.resource.bitmap.BitmapTransformation;
 import com.evoucher.accv.e_voucher.R;
 
 import org.xutils.image.ImageOptions;
@@ -23,20 +32,21 @@ import org.xutils.x;
 public class ImageUtil {
     
     
-    
-    
     public static void loadImage(String url, ImageView imageView) {
-        x.image().bind(imageView, url);
+        x.image().bind(imageView, url, new ImageOptions.Builder().build());
     }
     
     public static void loadRoundImage(String url, ImageView imageView) {
-        ImageOptions.Builder ib = new ImageOptions.Builder();
-        ib
+        
+        x.image().bind(imageView, url, new ImageOptions.Builder()
                 .setCircular(true) // 设置圆形
                 .setFadeIn(true)  // 淡入效果
-                .setFailureDrawableId(R.mipmap.ic_launcher)  // 设置加载失败
-                .setLoadingDrawableId(R.mipmap.ic_launcher_round);
-        x.image().bind(imageView, url, ib.build());
+                .setCrop(true)//是否对图片进行裁剪
+                .setFailureDrawableId(R.mipmap.ic_launcher_round)  // 设置加载失败
+                .setLoadingDrawableId(R.mipmap.ic_launcher)
+                .setUseMemCache(true)
+                .setImageScaleType(ImageView.ScaleType.FIT_CENTER)
+                .build());
 
 
 //                //通过ImageOptions.Builder().set方法设置图片的属性
@@ -66,15 +76,21 @@ public class ImageUtil {
         
     }
     
+    public static void displayImage(String url, ImageView imageView, Context context) {
+        Glide.with(context).load(url).placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher_round).into(imageView);
+    }
     
+    public static void displayCircleImage(String url, ImageView imageView, Context context) {
+        Glide.with(context).load(url).transform(new ImageUtil.GlideCircleTransform(context))
+                .placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher_round).into(imageView);
+        
+    }
     
-    
-    
-    
-    
-    
-    
-    
+    public static void displayRoundImage(String url, ImageView imageView, float r, Context context) {
+        Glide.with(context).load(url).transform(new ImageUtil.GlideRoundTransform(context, r))
+                .placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher_round).into(imageView);
+        
+    }
     
     /**
      * 根据Uri获取图片绝对路径，解决Android4.4以上版本Uri转换
@@ -175,5 +191,89 @@ public class ImageUtil {
      */
     public static boolean isGooglePhotosUri(Uri uri) {
         return "com.google.android.apps.photos.content".equals(uri.getAuthority());
+    }
+    
+    
+    //圆形图片
+    private static class GlideCircleTransform extends BitmapTransformation {
+        private GlideCircleTransform(Context context) {
+            super(context);
+        }
+        
+        @Override
+        protected Bitmap transform(BitmapPool pool, Bitmap toTransform, int outWidth, int outHeight) {
+            return circleCrop(pool, toTransform);
+        }
+        
+        private static Bitmap circleCrop(BitmapPool pool, Bitmap source) {
+            if (source == null) return null;
+            
+            int size = Math.min(source.getWidth(), source.getHeight());
+            int x = (source.getWidth() - size) / 2;
+            int y = (source.getHeight() - size) / 2;
+            
+            // TODO this could be acquired from the pool too
+            Bitmap squared = Bitmap.createBitmap(source, x, y, size, size);
+            
+            Bitmap result = pool.get(size, size, Bitmap.Config.ARGB_8888);
+            if (result == null) {
+                result = Bitmap.createBitmap(size, size, Bitmap.Config.ARGB_8888);
+            }
+            
+            Canvas canvas = new Canvas(result);
+            Paint paint = new Paint();
+            paint.setShader(new BitmapShader(squared, BitmapShader.TileMode.CLAMP, BitmapShader.TileMode.CLAMP));
+            paint.setAntiAlias(true);
+            float r = size / 2f;
+            canvas.drawCircle(r, r, r, paint);
+            return result;
+        }
+        
+        @Override
+        public String getId() {
+            return getClass().getName();
+        }
+    }
+    
+    //圆角图片
+    private static class GlideRoundTransform extends BitmapTransformation {
+        
+        private static float radius = 0f;
+        
+        public GlideRoundTransform(Context context) {
+            this(context, 4);
+        }
+        
+        private GlideRoundTransform(Context context, float dp) {
+            super(context);
+            radius = Resources.getSystem().getDisplayMetrics().density * dp;
+        }
+        
+        @Override
+        protected Bitmap transform(BitmapPool pool, Bitmap toTransform, int outWidth, int outHeight) {
+            return roundCrop(pool, toTransform);
+        }
+        
+        private static Bitmap roundCrop(BitmapPool pool, Bitmap source) {
+            if (source == null) return null;
+            
+            Bitmap result = pool.get(source.getWidth(), source.getHeight(), Bitmap.Config.ARGB_8888);
+            if (result == null) {
+                result = Bitmap.createBitmap(source.getWidth(), source.getHeight(), Bitmap.Config.ARGB_8888);
+            }
+            
+            Canvas canvas = new Canvas(result);
+            Paint paint = new Paint();
+            paint.setShader(new BitmapShader(source, BitmapShader.TileMode.CLAMP, BitmapShader.TileMode.CLAMP));
+            paint.setAntiAlias(true);
+            RectF rectF = new RectF(0f, 0f, source.getWidth(), source.getHeight());
+            canvas.drawRoundRect(rectF, radius, radius, paint);
+            return result;
+        }
+        
+        @Override
+        public String getId() {
+            return getClass().getName() + Math.round(radius);
+        }
     }
 }
