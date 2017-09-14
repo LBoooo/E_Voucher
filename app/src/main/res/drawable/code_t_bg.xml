@@ -10,13 +10,13 @@
         <!--android:right="2dp"-->
         <!--android:top="1dp"/>-->
     <solid
-        android:color="@color/white"/>
-    <stroke
-        android:width="2px"
-        android:color="@color/grey"/>
-    <size
-        android:width="50px"
-        android:height="50px"/>
+        android:color="@color/code_cen_red"/>
+    <!--<stroke-->
+        <!--android:width="2px"-->
+        <!--android:color="@color/grey"/>-->
+    <!--<size-->
+        <!--android:width="50px"-->
+        <!--android:height="50px"/>-->
 
     <corners android:radius="100px"/>
 </shape>

@@ -272,7 +272,7 @@ public class MainActivity extends BaseActivity {
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if ((keyCode == KeyEvent.KEYCODE_BACK)) {
-            showDialog(new DialogInterface.OnClickListener() {
+            showDoubleClickFinishDialog(new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
                     finish();
@@ -284,21 +284,5 @@ public class MainActivity extends BaseActivity {
         }
     }
     
-    /**
-     * 这是兼容的 AlertDialog
-     */
-    protected void showDialog(DialogInterface.OnClickListener listener) {
-        android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(this);
-        final AlertDialog dialog = builder.create();
-        dialog.setTitle("退出！");
-        dialog.setMessage("确定要退出吗？");
-        dialog.setButton(DialogInterface.BUTTON_NEGATIVE, "取消", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                dialog.dismiss();
-            }
-        });
-        dialog.setButton(DialogInterface.BUTTON_POSITIVE, "确定", listener);
-        dialog.show();
-    }
+    
 }

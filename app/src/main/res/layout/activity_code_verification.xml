@@ -6,21 +6,26 @@
 
     <include layout="@layout/title_view"/>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2">
+        android:layout_weight="2"
+        android:background="@color/code_red">
 
         <TextView
+            android:maxLines="1"
+            android:padding="30px"
             android:id="@+id/showHxTv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="center"
+            android:layout_centerInParent="true"
+            android:layout_margin="40px"
+            android:background="@drawable/code_t_bg"
             android:gravity="center"
-            android:hint="请输入正确的核销码"
-            android:padding="30px"
+            android:text="请输入正确的核销码"
+            android:textColor="@color/light_grey"
             android:textSize="20sp"/>
-    </LinearLayout>
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -34,33 +39,64 @@
             android:layout_height="0px"
             android:layout_weight="1">
 
+            <View
+                android:layout_width="0px"
+                android:layout_height="0px"
+                android:layout_weight="1"/>
+
             <TextView
+
                 android:id="@+id/t1Tv"
-                android:layout_width="0px"
-                android:layout_height="match_parent"
+                android:layout_width="150px"
+                android:layout_height="150px"
                 android:layout_gravity="center"
-                android:layout_weight="1"
+                android:layout_weight="0"
+                android:background="@drawable/round_bg"
                 android:gravity="center"
-                android:text="1"/>
+                android:text="1"
+                android:textColor="@color/black"
+                android:textSize="20sp"/>
+
+            <View
+                android:layout_width="0px"
+                android:layout_height="0px"
+                android:layout_weight="1"/>
 
             <TextView
+
                 android:id="@+id/t2Tv"
-                android:layout_width="0px"
-                android:layout_height="match_parent"
+                android:layout_width="150px"
+                android:layout_height="150px"
                 android:layout_gravity="center"
-                android:layout_weight="1"
+                android:layout_weight="0"
+                android:background="@drawable/round_bg"
                 android:gravity="center"
-                android:text="2"/>
+                android:text="2"
+                android:textColor="@color/black"
+                android:textSize="20sp"/>
+
+            <View
+                android:layout_width="0px"
+                android:layout_height="0px"
+                android:layout_weight="1"/>
 
             <TextView
+
                 android:id="@+id/t3Tv"
-                android:layout_width="0px"
-                android:layout_height="match_parent"
+                android:layout_width="150px"
+                android:layout_height="150px"
                 android:layout_gravity="center"
-                android:layout_weight="1"
+                android:layout_weight="0"
+                android:background="@drawable/round_bg"
                 android:gravity="center"
-                android:text="3"/>
+                android:text="3"
+                android:textColor="@color/black"
+                android:textSize="20sp"/>
 
+            <View
+                android:layout_width="0px"
+                android:layout_height="0px"
+                android:layout_weight="1"/>
         </LinearLayout>
 
         <LinearLayout
@@ -68,33 +104,64 @@
             android:layout_height="0px"
             android:layout_weight="1">
 
+            <View
+                android:layout_width="0px"
+                android:layout_height="0px"
+                android:layout_weight="1"/>
+
             <TextView
+
                 android:id="@+id/t4Tv"
-                android:layout_width="0px"
-                android:layout_height="match_parent"
+                android:layout_width="150px"
+                android:layout_height="150px"
                 android:layout_gravity="center"
-                android:layout_weight="1"
+                android:layout_weight="0"
+                android:background="@drawable/round_bg"
                 android:gravity="center"
-                android:text="4"/>
+                android:text="4"
+                android:textColor="@color/black"
+                android:textSize="20sp"/>
+
+            <View
+                android:layout_width="0px"
+                android:layout_height="0px"
+                android:layout_weight="1"/>
 
             <TextView
+
                 android:id="@+id/t5Tv"
-                android:layout_width="0px"
-                android:layout_height="match_parent"
+                android:layout_width="150px"
+                android:layout_height="150px"
                 android:layout_gravity="center"
-                android:layout_weight="1"
+                android:layout_weight="0"
+                android:background="@drawable/round_bg"
                 android:gravity="center"
-                android:text="5"/>
+                android:text="5"
+                android:textColor="@color/black"
+                android:textSize="20sp"/>
+
+            <View
+                android:layout_width="0px"
+                android:layout_height="0px"
+                android:layout_weight="1"/>
 
             <TextView
+
                 android:id="@+id/t6Tv"
-                android:layout_width="0px"
-                android:layout_height="match_parent"
+                android:layout_width="150px"
+                android:layout_height="150px"
                 android:layout_gravity="center"
-                android:layout_weight="1"
+                android:layout_weight="0"
+                android:background="@drawable/round_bg"
                 android:gravity="center"
-                android:text="6"/>
+                android:text="6"
+                android:textColor="@color/black"
+                android:textSize="20sp"/>
 
+            <View
+                android:layout_width="0px"
+                android:layout_height="0px"
+                android:layout_weight="1"/>
         </LinearLayout>
 
         <LinearLayout
@@ -102,33 +169,64 @@
             android:layout_height="0px"
             android:layout_weight="1">
 
+            <View
+                android:layout_width="0px"
+                android:layout_height="0px"
+                android:layout_weight="1"/>
+
             <TextView
+
                 android:id="@+id/t7Tv"
-                android:layout_width="0px"
-                android:layout_height="match_parent"
+                android:layout_width="150px"
+                android:layout_height="150px"
                 android:layout_gravity="center"
-                android:layout_weight="1"
+                android:layout_weight="0"
+                android:background="@drawable/round_bg"
                 android:gravity="center"
-                android:text="7"/>
+                android:text="7"
+                android:textColor="@color/black"
+                android:textSize="20sp"/>
+
+            <View
+                android:layout_width="0px"
+                android:layout_height="0px"
+                android:layout_weight="1"/>
 
             <TextView
+
                 android:id="@+id/t8Tv"
-                android:layout_width="0px"
-                android:layout_height="match_parent"
+                android:layout_width="150px"
+                android:layout_height="150px"
                 android:layout_gravity="center"
-                android:layout_weight="1"
+                android:layout_weight="0"
+                android:background="@drawable/round_bg"
                 android:gravity="center"
-                android:text="8"/>
+                android:text="8"
+                android:textColor="@color/black"
+                android:textSize="20sp"/>
+
+            <View
+                android:layout_width="0px"
+                android:layout_height="0px"
+                android:layout_weight="1"/>
 
             <TextView
-                android:id="@+id/t9Tv"
-                android:layout_width="0px"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="9"/>
 
+                android:id="@+id/t9Tv"
+                android:layout_width="150px"
+                android:layout_height="150px"
+                android:layout_gravity="center"
+                android:layout_weight="0"
+                android:background="@drawable/round_bg"
+                android:gravity="center"
+                android:text="9"
+                android:textColor="@color/black"
+                android:textSize="20sp"/>
+
+            <View
+                android:layout_width="0px"
+                android:layout_height="0px"
+                android:layout_weight="1"/>
         </LinearLayout>
 
         <LinearLayout
@@ -136,24 +234,46 @@
             android:layout_height="0px"
             android:layout_weight="1">
 
-            <TextView
-                android:id="@+id/t0Tv"
+            <View
                 android:layout_width="0px"
-                android:layout_height="match_parent"
+                android:layout_height="0px"
+                android:layout_weight="1"/>
+
+            <TextView
+
+                android:id="@+id/t0Tv"
+                android:layout_width="150px"
+                android:layout_height="150px"
+                android:layout_gravity="center"
+                android:layout_weight="0"
+                android:background="@drawable/round_bg"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/black"
+                android:textSize="20sp"/>
+
+            <View
+                android:layout_width="0px"
+                android:layout_height="0px"
+                android:layout_weight="1"/>
+
+            <TextView
+
+                android:id="@+id/hxTv"
+                android:layout_width="300px"
+                android:layout_height="150px"
                 android:layout_gravity="center"
                 android:layout_weight="1"
+                android:background="@drawable/round_bg"
                 android:gravity="center"
-                android:text="0"/>
+                android:text="核销"
+                android:textColor="@color/black"
+                android:textSize="20sp"/>
 
-            <TextView
-                android:id="@+id/hxTv"
+            <View
                 android:layout_width="0px"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:layout_weight="2"
-                android:gravity="center"
-                android:text="核销"/>
-
+                android:layout_height="0px"
+                android:layout_weight="1"/>
 
         </LinearLayout>
 

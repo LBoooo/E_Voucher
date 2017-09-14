@@ -11,9 +11,9 @@
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
         android:adjustViewBounds="true"
-        android:padding="20px"
+        android:padding="30px"
         android:scaleType="centerInside"
-        android:src="@mipmap/ic_launcher"/>
+        android:src="@mipmap/back_icon"/>
 
     <ImageView
         android:id="@+id/verticalLineImg"
@@ -21,7 +21,9 @@
         android:layout_height="match_parent"
         android:layout_toRightOf="@+id/titleBackImg"
         android:background="@color/light_grey"
-        android:layout_margin="20px"/>
+        android:layout_marginTop="20px"
+        android:layout_marginBottom="20px"
+        android:layout_marginRight="20px"/>
 
     <TextView
         android:textColor="@color/black"
@@ -36,11 +38,10 @@
 
     <ImageView
         android:id="@+id/titleMoreImg"
-        android:layout_width="wrap_content"
+        android:layout_width="100px"
         android:layout_height="match_parent"
         android:layout_alignParentRight="true"
         android:adjustViewBounds="true"
-        android:padding="20px"
         android:scaleType="centerInside"
-        android:src="@mipmap/ic_launcher"/>
+        android:src="@mipmap/title_more_icon"/>
 </RelativeLayout>

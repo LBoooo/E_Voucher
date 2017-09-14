@@ -92,6 +92,11 @@ public class ImageUtil {
         
     }
     
+    public static void clear(ImageView imageView, Context context) {
+        Glide.clear(imageView);
+    }
+    
+    
     /**
      * 根据Uri获取图片绝对路径，解决Android4.4以上版本Uri转换
      *

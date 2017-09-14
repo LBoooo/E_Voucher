@@ -21,8 +21,12 @@
     <color name="red">#ffff0019</color>
     <color name="trapezoid_backdrop">#fff0fcf8</color>
 
+    <color name="code_red">#ffdf2638</color>
+    <color name="code_cen_red">#ffc52b33</color>
+
 
     <color name="st_blue">#fff0fcf8</color>
     <color name="wt_blue">#ffe5fbf8</color>
     <color name="lt_blue">#ffd0f3ec</color>
+
 </resources>

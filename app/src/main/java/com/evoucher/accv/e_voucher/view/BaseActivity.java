@@ -2,9 +2,11 @@ package com.evoucher.accv.e_voucher.view;
 
 import android.app.DialogFragment;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.evoucher.accv.e_voucher.R;
+import com.evoucher.accv.e_voucher.utils.DoubleClickExitDetector;
 import com.evoucher.accv.e_voucher.utils.ToastUtil;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
@@ -20,6 +23,7 @@ import com.scwang.smartrefresh.layout.listener.OnLoadmoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import com.zhy.autolayout.AutoLayoutActivity;
 
+import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
@@ -75,6 +79,22 @@ public abstract class BaseActivity extends AutoLayoutActivity {
         }
     }
     
+    @Event(value = {R.id.titleBackImg})
+    private void titleBack(View view) {
+        if (this instanceof MainActivity) {
+            // 主页
+            showDoubleClickFinishDialog(new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    finish();
+                }
+            });
+        } else {
+            // 其他直接返回
+            finish();
+        }
+    }
+    
     protected void setTitleBackImg(int res) {
         if (res <= 0) {
             titleBackImg.setVisibility(View.GONE);
@@ -114,7 +134,7 @@ public abstract class BaseActivity extends AutoLayoutActivity {
         }
         
     }
-
+    
     protected void showLoading() {
         loading.show(getFragmentManager(), "");
     }
@@ -124,9 +144,27 @@ public abstract class BaseActivity extends AutoLayoutActivity {
     }
     
     
-    protected void setOnRefreshListener(OnRefreshListener onRefreshListener , OnLoadmoreListener onLoadmoreListener){
+    protected void setOnRefreshListener(OnRefreshListener onRefreshListener, OnLoadmoreListener onLoadmoreListener) {
         refreshLayout.setOnRefreshListener(onRefreshListener);
-    
+        
         refreshLayout.setOnLoadmoreListener(onLoadmoreListener);
+    }
+    
+    /**
+     * 这是兼容的 AlertDialog
+     */
+    protected void showDoubleClickFinishDialog(DialogInterface.OnClickListener listener) {
+        android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(this);
+        final AlertDialog dialog = builder.create();
+        dialog.setTitle("退出！");
+        dialog.setMessage("确定要退出吗？");
+        dialog.setButton(DialogInterface.BUTTON_NEGATIVE, "取消", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialog.dismiss();
+            }
+        });
+        dialog.setButton(DialogInterface.BUTTON_POSITIVE, "确定", listener);
+        dialog.show();
     }
 }
