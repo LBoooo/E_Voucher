@@ -8,6 +8,12 @@ import android.net.Uri;
 import android.os.Environment;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
+import android.widget.ImageView;
+
+import com.evoucher.accv.e_voucher.R;
+
+import org.xutils.image.ImageOptions;
+import org.xutils.x;
 
 /**
  * Created by 李小白 on 2017/9/9.
@@ -15,6 +21,61 @@ import android.provider.MediaStore;
  */
 
 public class ImageUtil {
+    
+    
+    
+    
+    public static void loadImage(String url, ImageView imageView) {
+        x.image().bind(imageView, url);
+    }
+    
+    public static void loadRoundImage(String url, ImageView imageView) {
+        ImageOptions.Builder ib = new ImageOptions.Builder();
+        ib
+                .setCircular(true) // 设置圆形
+                .setFadeIn(true)  // 淡入效果
+                .setFailureDrawableId(R.mipmap.ic_launcher)  // 设置加载失败
+                .setLoadingDrawableId(R.mipmap.ic_launcher_round);
+        x.image().bind(imageView, url, ib.build());
+
+
+//                //通过ImageOptions.Builder().set方法设置图片的属性
+//                ImageOptions imageOptions = new ImageOptions.Builder().setFadeIn(true).build(); //淡入效果
+//                //ImageOptions.Builder()的一些其他属性：
+//                .setCircular(true) //设置图片显示为圆形
+//                .setSquare(true) //设置图片显示为正方形
+//                .setCrop(true).setSize(200, 200) //设置大小
+//                .setAnimation(animation) //设置动画
+//                .setFailureDrawable(Drawable failureDrawable) //设置加载失败的动画
+//                .setFailureDrawableId( int failureDrawable) //以资源id设置加载失败的动画
+//                .setLoadingDrawable(Drawable loadingDrawable) //设置加载中的动画
+//                .setLoadingDrawableId( int loadingDrawable) //以资源id设置加载中的动画
+//                .setIgnoreGif(false) //忽略Gif图片
+//                .setParamsBuilder(ParamsBuilder paramsBuilder) //在网络请求中添加一些参数
+//                .setRaduis( int raduis) //设置拐角弧度
+//                .setUseMemCache(true) //设置使用MemCache，默认true
+
+
+//                // assets file
+//                x.image().bind(imageView, "assets://test.gif", imageOptions);
+//                // local file
+//                x.image().bind(imageView, new File("/sdcard/test.gif").toURI().toString(), imageOptions);
+//                x.image().bind(imageView, "/sdcard/test.gif", imageOptions);
+//                x.image().bind(imageView, "file:///sdcard/test.gif", imageOptions);
+//                x.image().bind(imageView, "file:/sdcard/test.gif", imageOptions);
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     /**
      * 根据Uri获取图片绝对路径，解决Android4.4以上版本Uri转换
      *

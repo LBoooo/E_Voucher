@@ -11,9 +11,11 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.evoucher.accv.e_voucher.R;
+import com.evoucher.accv.e_voucher.utils.ImageUtil;
 import com.evoucher.accv.e_voucher.utils.PermissionHelper;
 import com.evoucher.accv.e_voucher.utils.SystemUtils;
 import com.evoucher.accv.e_voucher.utils.ToastUtil;
@@ -45,6 +47,7 @@ public class MainActivity extends BaseActivity {
         mainRv.setLayoutManager(new LinearLayoutManager(this));
         adapter = new MainRecyclerViewAdapter();
         mainRv.setAdapter(adapter);
+    
         
     }
     
@@ -109,6 +112,8 @@ public class MainActivity extends BaseActivity {
                     case TYPE00:
                         MainViewHolder0 holder0 = (MainViewHolder0) holder;
                         holder0.shopNameTv.setText("XXXXXXXXXXXXX店");
+                        ImageUtil.loadImage("https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3269061743,2028437678&fm=27&gp=0.jpg" , holder0.scanCodeImg);
+                        ImageUtil.loadRoundImage("https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1743354301,1611657411&fm=27&gp=0.jpg" , holder0.enterCodeImg);
                         break;
                     case TYPE01:
                         MainViewHolder1 holder1 = (MainViewHolder1) holder;
@@ -156,6 +161,10 @@ public class MainActivity extends BaseActivity {
         private class MainViewHolder0 extends RecyclerView.ViewHolder {
             @ViewInject(R.id.shopNameTv)
             TextView shopNameTv;
+            @ViewInject(R.id.scanCodeImg)
+            ImageView scanCodeImg;
+            @ViewInject(R.id.enterCodeImg)
+            ImageView enterCodeImg;
             
             public MainViewHolder0(View itemView) {
                 super(itemView);
