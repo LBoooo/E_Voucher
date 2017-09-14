@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,18 +35,18 @@ import org.xutils.x;
 
 public abstract class BaseActivity extends AutoLayoutActivity {
     @ViewInject(R.id.titleTextTv)
-    TextView titleTextTv;
+    private TextView titleTextTv;
     @ViewInject(R.id.titleMoreImg)
-    ImageView titleMoreImg;
+    private ImageView titleMoreImg;
     @ViewInject(R.id.titleBackImg)
-    ImageView titleBackImg;
+    private ImageView titleBackImg;
     @ViewInject(R.id.verticalLineImg)
-    View verticalLineImg;
+    private View verticalLineImg;
     @ViewInject(R.id.titleBackdropView)
-    View titleBackdropView;
-    
+    private View titleBackdropView;
     @ViewInject(R.id.refreshLayout)
-    SmartRefreshLayout refreshLayout;
+    private SmartRefreshLayout refreshLayout;
+    
     private LoadingDialog loading;
     
     @Override
@@ -166,5 +167,30 @@ public abstract class BaseActivity extends AutoLayoutActivity {
         });
         dialog.setButton(DialogInterface.BUTTON_POSITIVE, "确定", listener);
         dialog.show();
+    }
+    
+    
+    /**
+     * 监听Back键按下事件
+     * 注意:
+     * 返回值表示:是否能完全处理该事件
+     * 在此处返回false,所以会继续传播该事件.
+     * 在具体项目中此处的返回值视情况而定.
+     */
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (this instanceof MainActivity)
+        if ((keyCode == KeyEvent.KEYCODE_BACK)) {
+            showDoubleClickFinishDialog(new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    finish();
+                }
+            });
+            return false;
+        } else {
+            return super.onKeyDown(keyCode, event);
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

@@ -262,27 +262,7 @@ public class MainActivity extends BaseActivity {
     }
     
     
-    /**
-     * 监听Back键按下事件,方法2:
-     * 注意:
-     * 返回值表示:是否能完全处理该事件
-     * 在此处返回false,所以会继续传播该事件.
-     * 在具体项目中此处的返回值视情况而定.
-     */
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if ((keyCode == KeyEvent.KEYCODE_BACK)) {
-            showDoubleClickFinishDialog(new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    finish();
-                }
-            });
-            return false;
-        } else {
-            return super.onKeyDown(keyCode, event);
-        }
-    }
+   
     
     
 }
