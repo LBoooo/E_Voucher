@@ -113,10 +113,10 @@ public class MainActivity extends BaseActivity {
                     case TYPE00:
                         MainViewHolder0 holder0 = (MainViewHolder0) holder;
                         holder0.shopNameTv.setText("XXXXXXXXXXXXX店");
-                        ImageUtil.displayCircleImage("https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3269061743,2028437678&fm=27&gp=0.jpg",
+                        ImageUtil.displayImage("https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3269061743,2028437678&fm=27&gp=0.jpg",
                                 holder0.scanCodeImg, getContext());
-                        ImageUtil.displayRoundImage("https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1743354301,1611657411&fm=27&gp=0.jpg",
-                                holder0.enterCodeImg, 20f, getContext());
+                        ImageUtil.displayImage("https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1743354301,1611657411&fm=27&gp=0.jpg",
+                                holder0.enterCodeImg, getContext());
                         
                         break;
                     case TYPE01:

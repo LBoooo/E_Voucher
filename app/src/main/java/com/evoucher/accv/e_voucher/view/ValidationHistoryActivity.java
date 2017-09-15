@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +15,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.evoucher.accv.e_voucher.R;
+import com.evoucher.accv.e_voucher.contract.ValidationHistoryContract;
+import com.evoucher.accv.e_voucher.presenter.ValidationHistoryPresenter;
 import com.evoucher.accv.e_voucher.view.w.AutoTabLayout;
 
 import org.xutils.view.annotation.ContentView;
@@ -26,19 +29,29 @@ import org.xutils.view.annotation.ViewInject;
  */
 
 @ContentView(R.layout.activity_validation_history)
-public class ValidationHistoryActivity extends BaseActivity {
+public class ValidationHistoryActivity extends BaseActivity implements ValidationHistoryContract.View {
     @ViewInject(R.id.tabLayout)
     AutoTabLayout tabLayout;
     @ViewInject(R.id.viewPager)
     ViewPager viewPager;
     @ViewInject(R.id.dateSelectBtn)
     Button dateSelectBtn;
+    @ViewInject(R.id.vhTodayBtn)
+    TextView vhTodayBtn;
+    @ViewInject(R.id.vhAllBtn)
+    TextView vhAllBtn;
+    @ViewInject(R.id.vhYesterdayBtn)
+    TextView vhYesterdayBtn;
+    
+    
     Context context;
+    private ValidationHistoryPresenter presenter;
     
     @Override
     protected void initData() {
         setTitleText("验证历史");
         context = this;
+        presenter = new ValidationHistoryPresenter(this);
         ValidationHistoryVpAdapter pagerAdapter = new ValidationHistoryVpAdapter(getSupportFragmentManager());
         viewPager.setAdapter(pagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
@@ -55,13 +68,34 @@ public class ValidationHistoryActivity extends BaseActivity {
         }
     }
     
-    @Event(value = {R.id.dateSelectBtn})
+    @Event(value = {R.id.dateSelectBtn })
     private void onClick(View view) {
         switch (view.getId()) {
             case R.id.dateSelectBtn:
                 
                 break;
         }
+    }
+    
+    @Event(value = {R.id.vhAllBtn , R.id.vhTodayBtn , R.id.vhYesterdayBtn})
+    private void selectBtn(View view){
+        presenter.switchBtn(view);
+        switch (view.getId()){
+            case R.id.vhAllBtn:
+                
+                break;
+            case R.id.vhTodayBtn:
+                
+                break;
+            case R.id.vhYesterdayBtn:
+                
+                break;
+        }
+    }
+    
+    @Override
+    public TextView[] switchViews() {
+        return new TextView[]{vhAllBtn,vhTodayBtn,vhYesterdayBtn};
     }
     
     private class ValidationHistoryVpAdapter extends FragmentPagerAdapter {

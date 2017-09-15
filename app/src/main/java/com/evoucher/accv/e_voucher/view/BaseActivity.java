@@ -44,8 +44,8 @@ public abstract class BaseActivity extends AutoLayoutActivity {
     private View verticalLineImg;
     @ViewInject(R.id.titleBackdropView)
     private View titleBackdropView;
-    @ViewInject(R.id.refreshLayout)
-    private SmartRefreshLayout refreshLayout;
+    
+   
     
     private LoadingDialog loading;
     
@@ -145,10 +145,12 @@ public abstract class BaseActivity extends AutoLayoutActivity {
     }
     
     
-    protected void setOnRefreshListener(OnRefreshListener onRefreshListener, OnLoadmoreListener onLoadmoreListener) {
-        refreshLayout.setOnRefreshListener(onRefreshListener);
-        
-        refreshLayout.setOnLoadmoreListener(onLoadmoreListener);
+    protected void setOnRefreshListener(SmartRefreshLayout refreshLayout ,OnRefreshListener onRefreshListener, OnLoadmoreListener onLoadmoreListener) {
+        if (refreshLayout != null){
+            refreshLayout.setOnRefreshListener(onRefreshListener);
+    
+            refreshLayout.setOnLoadmoreListener(onLoadmoreListener);
+        }
     }
     
     /**

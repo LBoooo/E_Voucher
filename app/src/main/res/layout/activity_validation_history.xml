@@ -35,11 +35,50 @@
             android:layout_height="0px"
             android:layout_weight="1"/>
 
-        <View
 
+        <LinearLayout
+            android:padding="1px"
+            android:background="@drawable/switch_bg"
+            android:orientation="horizontal"
             android:layout_width="300px"
-            android:layout_height="match_parent"
-            android:background="@color/bg_color"/>
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/vhAllBtn"
+                android:textColor="@color/white"
+                android:text="全部"
+                android:textSize="15sp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:background="@color/light_red"
+                android:layout_weight="1"
+                android:layout_width="0px"
+                android:layout_height="match_parent"/>
+
+            <TextView
+                android:id="@+id/vhTodayBtn"
+                android:textColor="@color/light_red"
+                android:text="今天"
+                android:textSize="15sp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:background="@color/white"
+                android:layout_weight="1"
+                android:layout_width="0px"
+                android:layout_height="match_parent"/>
+
+            <TextView
+                android:id="@+id/vhYesterdayBtn"
+                android:textColor="@color/light_red"
+                android:text="昨天"
+                android:textSize="15sp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:background="@color/white"
+                android:layout_weight="1"
+                android:layout_width="0px"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
 
         <View
             android:layout_width="0px"

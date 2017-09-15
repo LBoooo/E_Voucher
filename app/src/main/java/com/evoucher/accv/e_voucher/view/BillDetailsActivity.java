@@ -70,7 +70,7 @@ public class BillDetailsActivity extends BaseActivity implements BillContract.Vi
 //            }
 //        });
         
-        setOnRefreshListener(new OnRefreshListener() {
+        setOnRefreshListener(refreshLayout , new OnRefreshListener() {
             @Override
             public void onRefresh(RefreshLayout refreshlayout) {
                 billPresenter.obtainBill();
