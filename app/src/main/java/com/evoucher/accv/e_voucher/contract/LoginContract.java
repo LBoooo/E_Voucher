@@ -9,7 +9,7 @@ import android.widget.EditText;
 
 public interface LoginContract {
     interface Model {
-        void login(String account , String password , OnLoginListener listener);
+        void login(String account , String password , OnLoginListener listener );
         void sign(String account , String password , onSignListener listener);
     }
     
@@ -25,7 +25,7 @@ public interface LoginContract {
     
     interface Presenter {
         void onTextWatch(EditText e1 , EditText e2);
-        void login(String account , String password);
+        void login(String account , String password, boolean isCheck);
         void sign(String account , String password);
     }
     

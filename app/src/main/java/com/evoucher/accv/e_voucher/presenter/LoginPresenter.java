@@ -63,10 +63,14 @@ public class LoginPresenter implements LoginContract.Presenter, LoginContract.On
     }
     
     @Override
-    public void login(String account, String password) {
+    public void login(String account, String password , boolean isCheck) {
         if (account != null && !account.equals("")) {
             if (password != null && !password.equals("")) {
-                loginModel.login(account, password, this);
+                if (isCheck){
+                    loginModel.login(account, password, this);
+                }else {
+                    view.loginFail("请同意用户协议");
+                }
             } else {
                 view.loginFail("密码不可为空");
             }

@@ -17,24 +17,57 @@
 
 <resources>
 
-  <declare-styleable name="ExpandIconView">
-    <attr name="eiv_roundedCorners" format="boolean"/>
-    <attr name="eiv_switchColor" format="boolean"/>
-    <attr name="eiv_color" format="color"/>
-    <attr name="eiv_colorMore" format="color"/>
-    <attr name="eiv_colorLess" format="color"/>
-    <attr name="eiv_colorIntermediate" format="color"/>
-    <attr name="eiv_animationDuration" format="integer"/>
-    <attr name="eiv_padding" format="dimension"/>
-  </declare-styleable>
+    <declare-styleable name="ExpandIconView">
+        <attr name="eiv_roundedCorners" format="boolean"/>
+        <attr name="eiv_switchColor" format="boolean"/>
+        <attr name="eiv_color" format="color"/>
+        <attr name="eiv_colorMore" format="color"/>
+        <attr name="eiv_colorLess" format="color"/>
+        <attr name="eiv_colorIntermediate" format="color"/>
+        <attr name="eiv_animationDuration" format="integer"/>
+        <attr name="eiv_padding" format="dimension"/>
+    </declare-styleable>
 
 
+    <declare-styleable name="MultipleStatusView">
+        <attr name="loadingView" format="reference"/>
+        <attr name="errorView" format="reference"/>
+        <attr name="emptyView" format="reference"/>
+        <attr name="noNetworkView" format="reference"/>
+        <attr name="contentView" format="reference"/>
+    </declare-styleable>
 
-  <declare-styleable name="MultipleStatusView">
-    <attr name="loadingView" format="reference"/>
-    <attr name="errorView" format="reference"/>
-    <attr name="emptyView" format="reference"/>
-    <attr name="noNetworkView" format="reference"/>
-    <attr name="contentView" format="reference"/>
-  </declare-styleable>
+    <declare-styleable name="DragPointView">
+
+        <attr name="maxDragLength" format="dimension"/>
+        <attr name="centerCircleRadius" format="dimension"/>
+        <attr name="dragCircleRadius" format="dimension"/>
+        <attr name="centerMinRatio" format="float"/>
+        <attr name="recoveryAnimDuration" format="integer"/>
+        <attr name="recoveryAnimBounce" format="float"/>
+        <attr name="colorStretching" format="color"/>
+        <attr name="sign" format="string"/>
+        <attr name="clearSign" format="string"/>
+        <attr name="canDrag" format="boolean"/>
+
+    </declare-styleable>
+
+    <declare-styleable name="TrapezoidView">
+        <attr name="progress" format="integer"/>
+        <attr name="text" format="string"/>
+        <attr name="text_size" format="integer"/>
+        <attr name="back_drop_color" format="reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="GregorianLunarCalendarView">
+        <attr name="glcv_ScrollAnimation" format="reference|boolean" />
+        <attr name="glcv_GregorianThemeColor" format="reference|color" />
+        <attr name="glcv_LunarThemeColor" format="reference|color" />
+        <attr name="glcv_NormalTextColor" format="reference|color" />
+    </declare-styleable>
+
+    <attr name="theme_color" format="reference"/>
+    <attr name="theme_shape_color" format="reference"/>
+    <attr name="theme_start_color" format="reference"/>
+    <attr name="theme_end_color" format="reference"/>
 </resources>

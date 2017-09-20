@@ -8,7 +8,7 @@
     <include layout="@layout/title_view"/>
 
     <View
-        style="@style/line"
+        style="@style/h_line"
         android:layout_height="3px"/>
 
 
@@ -21,7 +21,7 @@
         android:orientation="horizontal">
 
         <View
-            style="@style/h_line"
+            style="@style/v_line"
             android:layout_width="3px"/>
 
         <LinearLayout
@@ -71,12 +71,12 @@
         </LinearLayout>
 
         <View
-            style="@style/h_line"
+            style="@style/v_line"
             android:layout_width="3px"/>
     </LinearLayout>
 
     <View
-        style="@style/line"
+        style="@style/h_line"
         android:layout_height="3px"/>
     <com.scwang.smartrefresh.layout.SmartRefreshLayout
         android:id="@+id/refreshLayout"

@@ -25,7 +25,7 @@ public class AppApplication extends Application {
         AutoLayoutConifg.getInstance().useDeviceSize();
         // 初始化xUtils
         x.Ext.init(this);
-        x.Ext.setDebug(BuildConfig.DEBUG); // 是否输出debug日志, 开启debug会影响性能.
+        x.Ext.setDebug(false); // 是否输出debug日志, 开启debug会影响性能.
     
         ZXingLibrary.initDisplayOpinion(this); // 初始化二维码
         

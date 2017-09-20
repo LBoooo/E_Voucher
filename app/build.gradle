@@ -35,17 +35,24 @@ dependencies {
     testCompile 'junit:junit:4.12'
     // 屏幕适配
     compile 'com.zhy:autolayout:1.4.5'
+    // xutils 框架
     compile 'org.xutils:xutils:3.5.0'
     // 二维码
     compile 'cn.yipianfengye.android:zxing-library:2.2'
+    // design包 主要是用tablayout
     compile 'com.android.support:design:26.0.0-alpha1'
+    // 卡片布局
     compile 'com.android.support:cardview-v7:26.0.0-alpha1'
+    // gson 解析
     compile 'com.google.code.gson:gson:2.8.1'
     // 下拉刷新 上拉加载
     compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.3'
-    compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.3'
     //没有使用特殊Header，可以不加这行
-    compile 'com.github.bumptech.glide:glide:3.5.2'
+    compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.3'
+    // glide图片加载
+    compile 'com.github.bumptech.glide:glide:3.7.0'
 
 //    compile 'io.github.mayubao:pay_library:1.0.1' // 支付 微信 支付宝
+    // 日期选择
+    compile 'cn.carbswang.android:NumberPickerView:1.1.0'
 }

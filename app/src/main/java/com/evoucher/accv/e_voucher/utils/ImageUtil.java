@@ -31,11 +31,12 @@ import org.xutils.x;
 
 public class ImageUtil {
     
-    
+    @Deprecated  // 用最新的DisplayImage
     public static void loadImage(String url, ImageView imageView) {
         x.image().bind(imageView, url, new ImageOptions.Builder().build());
     }
     
+    @Deprecated  // 用这个方法设置圆形图会有问题
     public static void loadRoundImage(String url, ImageView imageView) {
         
         x.image().bind(imageView, url, new ImageOptions.Builder()
@@ -47,8 +48,6 @@ public class ImageUtil {
                 .setUseMemCache(true)
                 .setImageScaleType(ImageView.ScaleType.FIT_CENTER)
                 .build());
-
-
 //                //通过ImageOptions.Builder().set方法设置图片的属性
 //                ImageOptions imageOptions = new ImageOptions.Builder().setFadeIn(true).build(); //淡入效果
 //                //ImageOptions.Builder()的一些其他属性：
@@ -73,22 +72,23 @@ public class ImageUtil {
 //                x.image().bind(imageView, "/sdcard/test.gif", imageOptions);
 //                x.image().bind(imageView, "file:///sdcard/test.gif", imageOptions);
 //                x.image().bind(imageView, "file:/sdcard/test.gif", imageOptions);
-        
     }
     
     public static void displayImage(String url, ImageView imageView, Context context) {
-        Glide.with(context).load(url).placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher_round).into(imageView);
+        Glide.with(context).load(url).crossFade().placeholder(R.color.light_grey).error(R.mipmap.ic_launcher).centerCrop().into(imageView); //
+//        .fitCenter()  .thumbnail( 0.1f )//表示为原图的十分之一  .crossFade()// 渐显  .dontAnimate()// 不要动画
+        
     }
     
     public static void displayCircleImage(String url, ImageView imageView, Context context) {
         Glide.with(context).load(url).transform(new ImageUtil.GlideCircleTransform(context))
-                .placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher_round).into(imageView);
+                .placeholder(R.color.light_grey).error(R.mipmap.ic_launcher_round).into(imageView);
         
     }
     
     public static void displayRoundImage(String url, ImageView imageView, float r, Context context) {
         Glide.with(context).load(url).transform(new ImageUtil.GlideRoundTransform(context, r))
-                .placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher_round).into(imageView);
+                .placeholder(R.color.light_grey).error(R.mipmap.ic_launcher_round).into(imageView);
         
     }
     

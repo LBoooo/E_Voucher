@@ -48,7 +48,7 @@
         </LinearLayout>
 
         <View
-            style="@style/line"/>
+            style="@style/h_line"/>
         <LinearLayout
             android:gravity="center"
             android:layout_width="match_parent"
@@ -78,7 +78,7 @@
 
         </LinearLayout>
         <View
-            style="@style/line"/>
+            style="@style/h_line"/>
 
         <Button
             android:text="登录"
@@ -86,6 +86,29 @@
             android:layout_marginTop="100px"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:paddingLeft="5px"
+            android:paddingTop="20px"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/loginCheckImg"
+                android:src="@mipmap/un_check"
+                android:gravity="center"
+                android:layout_width="30px"
+                android:layout_height="30px"/>
+
+            <TextView
+                android:paddingLeft="10px"
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                android:text="我已阅读ACCV服务协议"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
 
     </LinearLayout>
 

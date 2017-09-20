@@ -6,4 +6,22 @@
     <string name="no_network_view_hint">网络异常</string>
     <integer name="base_width">768</integer>
     <integer name="base_height">1280</integer>
+
+    <dimen name="title_height">100px</dimen>
+
+
+
+    <string-array name="npv_lunar_year_without_measure_hint">
+        <item>二零一六</item>
+    </string-array>
+    <string-array name="npv_lunar_month_without_measure_hint">
+        <item>十一</item>
+    </string-array>
+    <string-array name="npv_lunar_day_with_measure_hint">
+        <item>初一</item>
+    </string-array>
+
+    <string name="year">年</string>
+    <string name="month">月</string>
+    <string name="day">日</string>
 </resources>

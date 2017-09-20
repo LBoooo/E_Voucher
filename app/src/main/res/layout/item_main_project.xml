@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <LinearLayout
+        android:gravity="center"
+        android:background="@color/white"
+        android:paddingLeft="20px"
+        android:paddingRight="20px"
+        android:paddingTop="40px"
+        android:paddingBottom="40px"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:maxLines="1"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textColor="@color/black"
+            android:ellipsize="end"
+            android:text="项目名称项目名称项目名称项目名称项目名称"
+            android:layout_weight="1.8"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"/>
+
+
+        <TextView
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textColor="@color/black"
+            android:text="收集中"
+            android:layout_weight="1"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"/>
+
+
+        <TextView
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textColor="@color/black"
+            android:text="123456份"
+            android:layout_weight="1.3"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"/>
+
+
+        <TextView
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textColor="@color/black"
+            android:text="456789元"
+            android:layout_weight="1.3"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+</LinearLayout>

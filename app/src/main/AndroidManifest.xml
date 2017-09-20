@@ -28,13 +28,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:name=".application.AppApplication"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        android:theme="@style/AppTheme">
         <!-- 设计稿尺寸 start-->
         <meta-data android:name="design_width" android:value="@integer/base_width"/>
 
         <meta-data android:name="design_height" android:value="@integer/base_height"/>
         <!-- 设计稿尺寸 end-->
-        <activity android:name=".view.MainActivity"
+        <activity android:name=".view.activity.SelectActivity"
             android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -43,13 +43,16 @@
             </intent-filter>
         </activity>
 
-        <!--<activity android:name=".view.MainActivity"/>-->
-        <activity android:name=".view.ScanCodeActivity"/>
-        <activity android:name=".view.CodeVerificationActivity"/>
-        <activity android:name=".view.AccountBalanceActivity"/>
-        <activity android:name=".view.BillDetailsActivity"/>
-        <activity android:name=".view.ValidationHistoryActivity"/>
-        <activity android:name=".view.EffectMonitoringActivity"/>
+        <activity android:name=".view.activity.MainActivity"/>
+        <activity android:name=".view.activity.ScanCodeActivity"/>
+        <activity android:name=".view.activity.CodeVerificationActivity"/>
+        <activity android:name=".view.activity.AccountBalanceActivity"/>
+        <activity android:name=".view.activity.BillDetailsActivity"/>
+        <activity android:name=".view.activity.ValidationHistoryActivity"/>
+        <activity android:name=".view.activity.EffectMonitoringActivity"/>
+        <activity android:name=".view.activity.PayHelperActivity"/>
+        <activity android:name=".view.activity.MineBillActivity"/>
+        <activity android:name=".view.activity.DatePickActivity"/>
     </application>
 
 </manifest>

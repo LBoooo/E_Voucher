@@ -2,24 +2,33 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
               android:background="@color/backdrop"
               android:orientation="vertical">
 
-    <include layout="@layout/title_view"/>
 
-    <LinearLayout
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/mainViewPager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="0px"
+        android:layout_weight="1">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/mainRv"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+    </android.support.v4.view.ViewPager>
 
-        </android.support.v7.widget.RecyclerView>
+    <View
+        style="@style/h_line"/>
+    <com.evoucher.accv.e_voucher.view.w.AutoTabLayout
 
+        android:id="@+id/mainTabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        app:tabIndicatorHeight="0px"
+        app:tabTextColor="@color/grey"
+        app:tabSelectedTextColor="?attr/theme_color"
+        android:background="@color/white">
 
-    </LinearLayout>
+    </com.evoucher.accv.e_voucher.view.w.AutoTabLayout>
+
 
 </LinearLayout>

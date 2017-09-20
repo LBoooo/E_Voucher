@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/white"
+              android:orientation="vertical">
+
+    <include layout="@layout/title_view"/>
+
+    <View
+        style="@style/h_line"/>
+
+    <LinearLayout
+        android:id="@+id/chooseTimePickView"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="30px"
+        android:background="@color/backdrop"
+        android:orientation="horizontal"
+        android:padding="10px">
+
+        <TextView
+            android:id="@+id/chooseTimePickTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="按日选择"/>
+
+        <ImageView
+            android:layout_width="30px"
+            android:layout_height="30px"
+            android:background="@color/light_grey"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150px"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/startTimeView"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="30px">
+
+            <TextView
+
+                android:textStyle="bold"
+                android:id="@+id/startTimeTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="开始日期"
+                android:textSize="16sp"/>
+
+            <View
+                android:id="@+id/startTimeLine"
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="@color/small_grey"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="至"/>
+
+        <LinearLayout
+            android:id="@+id/endTimeView"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="30px">
+
+            <TextView
+                android:textStyle="bold"
+                android:id="@+id/endTimeTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="结束日期"
+                android:textSize="16sp"/>
+
+            <View
+                android:id="@+id/endTimeLine"
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="@color/black"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="50px"
+        android:layout_height="50px"
+        android:layout_gravity="right"
+        android:layout_margin="30px"
+        android:src="@color/light_grey"/>
+
+    <com.evoucher.accv.e_voucher.view.w.GregorianLunarCalendarView
+        android:gravity="center"
+        android:id="@+id/calendarView"
+        android:layout_width="match_parent"
+        android:layout_height="400px"
+        android:padding="50px"
+
+        app:glcv_ScrollAnimation="true"/>
+
+    <!--app:glcv_GregorianThemeColor="@color/black"-->
+    <!--app:glcv_LunarThemeColor="@color/light_grey"-->
+    <!--app:glcv_NormalTextColor="@color/light_grey"-->
+</LinearLayout>
