@@ -45,9 +45,11 @@ public class MainActivity extends BaseActivity {
     ViewPager mainViewPager;
     MainViewPagerAdapter adapter;
     List<Fragment> fragments = new ArrayList<>();
+    DragPointView dpView;
+    
+    
     @Override
     protected void initData() {
-//        setTitleText("主页");
         
         PermissionHelper.initPermission(this);
         final MessageFragment msgFragment = new MessageFragment();
@@ -58,7 +60,6 @@ public class MainActivity extends BaseActivity {
                 if (num > 0) {
                     dpView.setVisibility(View.VISIBLE);
                     dpView.setText(String.valueOf(num));
-//                    dpView.setText("123");
                     DragPointHelper.setAnim(getContext(), dpView, new DragPointHelper.OnDragRemoveListener() {
                         @Override
                         public void onDragRemove(DragPointView view) {
@@ -71,7 +72,7 @@ public class MainActivity extends BaseActivity {
                 }
             }
         });
-        fragments.add(MainFragment.getInstance(false));
+        fragments.add(MainFragment.getInstance(getIntent().getBooleanExtra("type",true)));
         fragments.add(msgFragment);
         fragments.add(new MineFragment());
         
@@ -83,8 +84,6 @@ public class MainActivity extends BaseActivity {
             if (tab == null)
                 return;
             tab.setCustomView(adapter.getTabView(i));
-//            tab.setText("首页");
-//            tab.setIcon(R.mipmap.ic_launcher);
         }
         
         LinearLayout linearLayout = (LinearLayout) mainTabLayout.getChildAt(0);
@@ -92,47 +91,21 @@ public class MainActivity extends BaseActivity {
         linearLayout.setShowDividers(LinearLayout.SHOW_DIVIDER_MIDDLE);
         linearLayout.setDividerDrawable(ContextCompat.getDrawable(this,
                 R.drawable.layout_divider_vertical));
-        
-        
-        mainTabLayout.setSelectedTabIndicatorColor(SystemUtils.getThemeColor(this));
-    
-    
-    
-       
     }
     
-    DragPointView dpView;
+    
     private class MainViewPagerAdapter extends FragmentPagerAdapter {
-        
         String[] title = new String[]{"首页", "消息", "我的"};
-       
         
         MainViewPagerAdapter(FragmentManager fm , List<Fragment> fragments) {
             super(fm);
             MainActivity.this.fragments = fragments;
+            
         }
         
         @Override
         public Fragment getItem(int position) {
             return fragments.get(position);
-            
-//            if (fragmentMap != null && !fragmentMap.isEmpty() && fragmentMap.get(position) != null) {
-//                return fragmentMap.get(position);
-//            } else {
-//                switch (position) {
-//                    case 1:
-//                        fragmentMap.put(position, msgf);
-//                        return msgf;
-//                    case 2:
-//                        MineFragment minf = new MineFragment();
-//                        fragmentMap.put(position, minf);
-//                        return minf;
-//                    default:
-//                        MainFragment mf = MainFragment.getInstance(true);
-//                        fragmentMap.put(position, mf);
-//                        return mf;
-//                }
-//            }
         }
         
         @Override
@@ -142,36 +115,19 @@ public class MainActivity extends BaseActivity {
         
         @Override
         public CharSequence getPageTitle(int position) {
-            return title[position];//super.getPageTitle(position);
+            return title[position];
         }
         
-        
-        public View getTabView(final int position) {
+        View getTabView(final int position) {
             View view = LayoutInflater.from(getContext()).inflate(R.layout.tab_main_item, null);
             TextView tabNameTv = (TextView) view.findViewById(R.id.tabNameTv);
             
             tabNameTv.setText(title[position]);
             switch (position){
-//                case 0:
-//                    dpView.setVisibility(View.GONE);
-//                    break;
                 case 1:
                     dpView = view.findViewById(R.id.tabDpv);
                     break;
-//                case 2:
-//                    dpView.setVisibility(View.GONE);
-//                    break;
             }
-//            dpView.setVisibility(View.GONE);
-//            DragPointHelper.setAnim(getContext(), dpView, new DragPointHelper.OnDragRemoveListener() {
-//                @Override
-//                public void onDragRemove(DragPointView view) {
-//                    ToastUtil.showToast(getContext(), "移除所有消息");
-//                    ((MessageFragment) fragmentMap.get(position)).removeUnreadMessage();
-//                }
-//            });
-    
-           
             return view;
         }
     }

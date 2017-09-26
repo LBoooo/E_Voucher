@@ -37,9 +37,11 @@ public class LoginActivity extends BaseActivity implements LoginContract.View{
         loginBtn.setEnabled(false);
         loginPresenter.onTextWatch(accountEt , passwordEt);
         isCheck = isCanClick =false;
+        
+        
     }
     
-    @Event(value = {R.id.loginBtn , R.id.cleanPswImg , R.id.loginCheckImg})
+    @Event(value = {R.id.loginBtn , R.id.cleanPswImg , R.id.loginCheckImg , R.id.signInBtn})
     private void onClick(View view){
         switch (view.getId()){
             case R.id.loginBtn:
@@ -51,6 +53,9 @@ public class LoginActivity extends BaseActivity implements LoginContract.View{
                 break;
             case R.id.loginCheckImg:
                 check((ImageView) view);
+                break;
+            case R.id.signInBtn:
+                startActivity(new Intent(this , RegisterActivity.class));
                 break;
         }
     }
@@ -80,17 +85,17 @@ public class LoginActivity extends BaseActivity implements LoginContract.View{
         hideLoading();
     }
     
-    @Override
-    public void signSuccess() {
-        ToastUtil.showToast(this , "注册成功");
-        hideLoading();
-    }
-    
-    @Override
-    public void signFail(String err) {
-        ToastUtil.showToast(this , err);
-        hideLoading();
-    }
+//    @Override
+//    public void signSuccess() {
+//        ToastUtil.showToast(this , "注册成功");
+//        hideLoading();
+//    }
+//
+//    @Override
+//    public void signFail(String err) {
+//        ToastUtil.showToast(this , err);
+//        hideLoading();
+//    }
     
     @Override
     public void onButtonSate(boolean isCanClick) {

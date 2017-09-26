@@ -19,6 +19,18 @@ public class CodeVerificationPresenter implements CodeVerificationContract.Prese
     }
     
     
+    @Override
+    public void verificationCode(String code) {
+        model.verificationCode(code , this);
+    }
     
+    @Override
+    public void verificationCodeSuccess(String result) {
+        view.verificationCodeSuccess(result);
+    }
     
+    @Override
+    public void verificationCodeFail(String err) {
+        view.verificationCodeFail(err);
+    }
 }

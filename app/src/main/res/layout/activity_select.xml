@@ -4,101 +4,137 @@
               android:layout_height="match_parent"
               android:background="@color/white"
               android:orientation="vertical"
-              android:padding="100px">
+              android:paddingBottom="20px"
+              android:paddingLeft="100px"
+              android:paddingRight="100px"
+              android:paddingTop="100px">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="0px"
         android:layout_weight="1"
-        android:orientation="vertical">
-
-        <View
-            android:layout_width="200px"
-            android:layout_height="200px"
-            android:layout_gravity="center"
-            android:background="@color/bg_color"/>
+        android:scrollbars="none">
 
 
         <LinearLayout
-            android:id="@+id/selectToBtn0"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50px"
-            android:background="@drawable/theme_color_0"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:padding="40px">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="卡券"
-                android:textColor="@color/white"
-                android:textSize="20sp"/>
+            <View
+                android:layout_width="200px"
+                android:layout_height="200px"
+                android:layout_gravity="center"
+                android:background="@color/bg_color"/>
 
-            <TextView
-                android:layout_width="wrap_content"
+
+            <LinearLayout
+                android:id="@+id/selectToBtn0"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="正在进行中"
-                android:textColor="@color/white"
-                android:textSize="15sp"/>
+                android:layout_marginTop="50px"
+                android:background="@drawable/theme_color_0"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="40px">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="卡券"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="正在进行中"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/selectToBtn1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:background="@drawable/theme_color_1"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="40px">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="有奖问券"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="正在进行中"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/selectToBtn2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:background="@drawable/theme_color_2"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="40px">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="活动报名"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="正在进行中"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/selectToBtn3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:background="@drawable/theme_color_2"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="40px">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="资格审核"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="正在进行中"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"/>
+            </LinearLayout>
         </LinearLayout>
-
-
-        <LinearLayout
-            android:id="@+id/selectToBtn1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50px"
-            android:background="@drawable/theme_color_1"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:padding="40px">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="有奖问券"
-                android:textColor="@color/white"
-                android:textSize="20sp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="正在进行中"
-                android:textColor="@color/white"
-                android:textSize="15sp"/>
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:id="@+id/selectToBtn2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50px"
-            android:background="@drawable/theme_color_2"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:padding="40px">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="活动报名"
-                android:textColor="@color/white"
-                android:textSize="20sp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="正在进行中"
-                android:textColor="@color/white"
-                android:textSize="15sp"/>
-        </LinearLayout>
-    </LinearLayout>
+    </ScrollView>
 
     <TextView
         android:layout_width="wrap_content"

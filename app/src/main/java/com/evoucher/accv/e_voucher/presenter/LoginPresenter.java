@@ -12,7 +12,7 @@ import com.evoucher.accv.e_voucher.model.LoginModel;
  * Email WorkerLiBai@163.com
  */
 
-public class LoginPresenter implements LoginContract.Presenter, LoginContract.OnLoginListener, LoginContract.onSignListener {
+public class LoginPresenter implements LoginContract.Presenter, LoginContract.OnLoginListener {
     private LoginModel loginModel;
     private LoginContract.View view;
     private boolean ise1NotNull = false;
@@ -79,18 +79,18 @@ public class LoginPresenter implements LoginContract.Presenter, LoginContract.On
         }
     }
     
-    @Override
-    public void sign(String account, String password) {
-        if (account != null && !account.equals("")) {
-            if (password != null && !password.equals("")) {
-                loginModel.sign(account, password, this);
-            } else {
-                view.signFail("密码不可为空");
-            }
-        } else {
-            view.signFail("账号不可为空");
-        }
-    }
+//    @Override
+//    public void sign(String account, String password) {
+//        if (account != null && !account.equals("")) {
+//            if (password != null && !password.equals("")) {
+//                loginModel.sign(account, password, this);
+//            } else {
+//                view.signFail("密码不可为空");
+//            }
+//        } else {
+//            view.signFail("账号不可为空");
+//        }
+//    }
     
     @Override
     public void loginSuccess() {
@@ -98,18 +98,18 @@ public class LoginPresenter implements LoginContract.Presenter, LoginContract.On
     }
     
     @Override
-    public void loginFail() {
-        view.loginFail("登录失败");
+    public void loginFail(String err) {
+        view.loginFail(err);
     }
     
     
-    @Override
-    public void signSuccess() {
-        view.signSuccess();
-    }
-    
-    @Override
-    public void signFail() {
-        view.signFail("注册失败");
-    }
+//    @Override
+//    public void signSuccess() {
+//        view.signSuccess();
+//    }
+//
+//    @Override
+//    public void signFail() {
+//        view.signFail("注册失败");
+//    }
 }

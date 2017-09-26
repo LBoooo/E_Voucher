@@ -13,8 +13,11 @@
         android:padding="20px">
 
         <ImageView
-            android:layout_width="30px"
-            android:layout_height="30px"
+            android:id="@+id/closePayDialogBtn"
+            android:paddingLeft="20px"
+            android:paddingBottom="20px"
+            android:layout_width="50px"
+            android:layout_height="50px"
             android:layout_alignParentRight="true"
             android:src="@mipmap/back_icon"/>
 
@@ -36,6 +39,7 @@
                 android:textSize="20sp"/>
 
             <LinearLayout
+                android:id="@+id/WeiChatPayBtn"
                 android:gravity="center"
                 android:layout_weight="1"
                 android:layout_width="match_parent"
@@ -58,15 +62,16 @@
                     android:text="微信支付"/>
 
                 <ImageView
+                    android:id="@+id/weiChatPaySw"
                     android:layout_width="40px"
-                    android:layout_height="40px"
-                    android:src="@color/light_grey"/>
+                    android:layout_height="40px"/>
             </LinearLayout>
 
             <View
                 style="@style/h_line"/>
 
             <LinearLayout
+                android:id="@+id/aLiPayBtn"
                 android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -89,9 +94,9 @@
                     android:text="支付宝支付"/>
 
                 <ImageView
+                    android:id="@+id/aLiPaySw"
                     android:layout_width="40px"
-                    android:layout_height="40px"
-                    android:src="@color/light_grey"/>
+                    android:layout_height="40px"/>
             </LinearLayout>
         </LinearLayout>
     </RelativeLayout>

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.app.FragmentManager;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,6 +39,22 @@ public abstract class AbsBaseDialog extends DialogFragment {
     
     protected abstract void initView(View view);
     
+    @Override
+    public void dismiss() {
+        if(getDialog() != null && getDialog().isShowing()){//判断是否已经显示该弹窗
+            super.dismiss();
+        }
+    }
     
+    @Override
+    public void show(FragmentManager manager, String tag) {
+        if((getDialog() == null || !getDialog().isShowing())){//判断是否已经显示该弹窗
+            try{ //此处可try可不try，try下更保险
+                super.show(manager, tag);
+            }catch (IllegalStateException e){
+                e.printStackTrace();
+            }
+        }
+    }
     
 }

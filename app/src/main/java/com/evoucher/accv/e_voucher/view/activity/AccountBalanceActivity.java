@@ -17,10 +17,12 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.evoucher.accv.e_voucher.R;
+import com.evoucher.accv.e_voucher.utils.ToastUtil;
 
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.Event;
@@ -89,6 +91,8 @@ public class AccountBalanceActivity extends BaseActivity {
   
     public static class BottomDialog extends android.support.v4.app.DialogFragment {
         
+        private  boolean isChooseALiPay = false;
+        
         @NonNull
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -97,11 +101,46 @@ public class AccountBalanceActivity extends BaseActivity {
 
 //            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // 设置Content前设定
             View v = LayoutInflater.from(getContext()).inflate(R.layout.dialog_bottom , null);
+            View WeiChatPayBtn = v.findViewById(R.id.WeiChatPayBtn);
+            View aLiPayBtn = v.findViewById(R.id.aLiPayBtn);
+            final ImageView weiChatPaySw = v.findViewById(R.id.weiChatPaySw);
+            final ImageView aLiPaySw = v.findViewById(R.id.aLiPaySw);
+            View closePayDialogBtn = v.findViewById(R.id.closePayDialogBtn);
+            closePayDialogBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                  dismiss();
+                }
+            });
+            weiChatPaySw.setBackgroundColor(ContextCompat.getColor(getContext() , R.color.red));
+            aLiPaySw.setBackgroundColor(ContextCompat.getColor(getContext() , R.color.backdrop));
+            WeiChatPayBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    isChooseALiPay = false;
+                    weiChatPaySw.setBackgroundColor(ContextCompat.getColor(getContext() , R.color.red));
+                    aLiPaySw.setBackgroundColor(ContextCompat.getColor(getContext() , R.color.backdrop));
+                }
+            });
+            aLiPayBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    isChooseALiPay = true;
+                    weiChatPaySw.setBackgroundColor(ContextCompat.getColor(getContext() , R.color.backdrop));
+                    aLiPaySw.setBackgroundColor(ContextCompat.getColor(getContext() , R.color.red));
+                }
+            });
+            
             Button confirm = v.findViewById(R.id.confirmPaymentBtn);
             confirm.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(getContext(), "123", Toast.LENGTH_SHORT).show();
+                    if (isChooseALiPay){
+                        ToastUtil.showToast(getContext() , "支付宝");
+                    }else {
+                        ToastUtil.showToast(getContext() , "微信");
+                    }
+                    
                 }
             });
             dialog.setContentView(v);

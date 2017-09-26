@@ -8,6 +8,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.evoucher.accv.e_voucher.utils.LogUtil;
+
 import org.xutils.x;
 
 
@@ -37,10 +40,14 @@ public abstract class BaseFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         initData();
-        
+        LogUtil.v(getClass().getSimpleName() +"---------onCreated");
     }
     
     protected abstract void initData();
     
-  
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        LogUtil.e(getClass().getSimpleName() +"---------onDestroy");
+    }
 }

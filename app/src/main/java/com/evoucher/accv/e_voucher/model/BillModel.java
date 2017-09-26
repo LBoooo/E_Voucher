@@ -28,7 +28,7 @@ public class BillModel implements BillContract.Model {
             }
     
             @Override
-            public void onError() {
+            public void onError(String err) {
                 presenter.onObtainBillFail();
             }
     

@@ -42,8 +42,8 @@ import java.util.List;
  * db.delete(findAll);//根据实体bean进行对表里面的一条或多条数据进行删除
  * } catch (DbException e) {
  * }
- *
- *
+ * <p>
+ * <p>
  * 改**************************************************
  * // 第一种
  * try {
@@ -127,26 +127,45 @@ public class DatabaseHelper {
     }
     
     
-    public void saveUserToDatabase(){
+    public void saveUserToDatabase(User user) {
         try {
-            User user = new User();
-            user.age = 10;
-            user.name = "ss";
-            user.sex = "nan";
-//            dbManager.save(user);
             dbManager.saveOrUpdate(user);
         } catch (DbException e) {
             e.printStackTrace();
         }
     }
     
-    public List<User> getUsersFormDatabase(){
+    public List<User> getUsersFormDatabase() {
         try {
-            List<User> users = dbManager.findAll(User.class);
-            return users;
+            return dbManager.findAll(User.class);
         } catch (DbException e) {
             e.printStackTrace();
         }
         return null;
     }
+    
+    public String getLastUserId() {
+        try {
+            List<User> users = dbManager.findAll(User.class);
+            return users.get(users.size() - 1).userId;
+        } catch (DbException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    
+    public User getLastUser() {
+        try {
+            List<User> users = dbManager.findAll(User.class);
+            if (users == null || users.isEmpty())
+                return null;
+            else
+                return users.get(users.size() - 1);
+        } catch (DbException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    
+    
 }

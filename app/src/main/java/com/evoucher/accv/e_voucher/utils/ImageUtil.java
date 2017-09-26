@@ -80,6 +80,10 @@ public class ImageUtil {
         
     }
     
+    public static void displayImageUri(Uri uri , ImageView imageView , Context context){
+        Glide.with(context).load(uri).crossFade().placeholder(R.color.light_grey).error(R.mipmap.ic_launcher).centerCrop().into(imageView); //
+    }
+    
     public static void displayCircleImage(String url, ImageView imageView, Context context) {
         Glide.with(context).load(url).transform(new ImageUtil.GlideCircleTransform(context))
                 .placeholder(R.color.light_grey).error(R.mipmap.ic_launcher_round).into(imageView);

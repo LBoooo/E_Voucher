@@ -3,7 +3,9 @@ package com.evoucher.accv.e_voucher.application;
 import android.app.Application;
 
 import com.evoucher.accv.e_voucher.BuildConfig;
+import com.evoucher.accv.e_voucher.model.bean.User;
 import com.evoucher.accv.e_voucher.utils.DatabaseHelper;
+import com.evoucher.accv.e_voucher.utils.LogUtil;
 import com.evoucher.accv.e_voucher.utils.PermissionHelper;
 import com.evoucher.accv.e_voucher.utils.SmartRefreshUtils;
 import com.uuzuche.lib_zxing.activity.ZXingLibrary;
@@ -17,6 +19,8 @@ import org.xutils.x;
  */
 
 public class AppApplication extends Application {
+    public static User user;
+    
     
     @Override
     public void onCreate() {
@@ -31,6 +35,8 @@ public class AppApplication extends Application {
         
         DatabaseHelper.getInstance().init(); // 初始化数据库
     
-        new SmartRefreshUtils();
+        new SmartRefreshUtils();  // 初始化刷新样式
+     
+        LogUtil.init();  // 初始化log
     }
 }

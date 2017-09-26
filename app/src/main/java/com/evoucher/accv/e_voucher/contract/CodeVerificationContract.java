@@ -7,12 +7,20 @@ package com.evoucher.accv.e_voucher.contract;
 
 public interface CodeVerificationContract {
     interface Model {
+        void verificationCode(String code , Presenter presenter);
     }
     
     interface View {
+        void verificationCodeSuccess(String result);
+    
+        void verificationCodeFail(String err);
     }
     
     interface Presenter {
+        void verificationCode(String code);
         
+        void verificationCodeSuccess(String result);
+        
+        void verificationCodeFail(String err);
     }
 }

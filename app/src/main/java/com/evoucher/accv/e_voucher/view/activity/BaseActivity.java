@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AlertDialog;
 import android.view.Gravity;
 import android.view.KeyEvent;
@@ -20,6 +21,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.evoucher.accv.e_voucher.R;
+import com.evoucher.accv.e_voucher.utils.LogUtil;
 import com.evoucher.accv.e_voucher.utils.SystemUtils;
 import com.evoucher.accv.e_voucher.view.other.AbsBaseDialog;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
@@ -60,6 +62,8 @@ public abstract class BaseActivity extends AutoLayoutActivity {
         x.view().inject(this);
         loading = new LoadingDialog();
         initData();
+        LogUtil.v(getClass().getSimpleName() + "-----------onCreate");
+        
     }
     
     protected abstract void initData();
@@ -145,15 +149,18 @@ public abstract class BaseActivity extends AutoLayoutActivity {
         protected void initView(View view) {
             
         }
+       
         
     }
     
     protected void showLoading() {
-        loading.show(getSupportFragmentManager(), "");
+//        if (loading != null)
+            loading.show(getSupportFragmentManager(), "");
     }
     
     protected void hideLoading() {
-        loading.dismiss();
+//        if (loading != null && loading.getDialog() != null && loading.getDialog().isShowing())
+            loading.dismiss();
     }
     
     /**
@@ -174,10 +181,13 @@ public abstract class BaseActivity extends AutoLayoutActivity {
         dialog.show();
     }
     
-  
     
-    
-    
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        LogUtil.e(getClass().getSimpleName() + "-----------onDestroy");
+        
+    }
     
     /**
      * 监听Back键按下事件

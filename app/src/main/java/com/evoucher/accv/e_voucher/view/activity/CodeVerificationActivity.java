@@ -1,11 +1,14 @@
 package com.evoucher.accv.e_voucher.view.activity;
 
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.TextView;
 
 import com.evoucher.accv.e_voucher.R;
 import com.evoucher.accv.e_voucher.utils.ToastUtil;
+import com.uuzuche.lib_zxing.activity.CodeUtils;
 
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.Event;
@@ -66,7 +69,15 @@ public class CodeVerificationActivity extends BaseActivity {
 //                break;
 //
             case R.id.hxTv:
-                ToastUtil.showToast(this , "核销");
+                if (sb!= null && !sb.toString().isEmpty()){
+                    Intent resultIntent = new Intent();
+                    Bundle bundle = new Bundle();
+                    bundle.putInt(CodeUtils.RESULT_TYPE, CodeUtils.RESULT_SUCCESS);
+                    bundle.putString(CodeUtils.RESULT_STRING, sb.toString());
+                    resultIntent.putExtras(bundle);
+                    setResult(RESULT_OK, resultIntent);
+                    finish();
+                }
                 break;
             default:
                 appendText(((TextView)view).getText().toString());

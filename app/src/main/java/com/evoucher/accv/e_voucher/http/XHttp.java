@@ -1,24 +1,16 @@
 package com.evoucher.accv.e_voucher.http;
 
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Environment;
 import android.util.Log;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonParser;
-import com.google.gson.reflect.TypeToken;
+import com.evoucher.accv.e_voucher.model.entity.BaseEntity;
+import com.evoucher.accv.e_voucher.utils.GsonUtils;
+import com.evoucher.accv.e_voucher.utils.LogUtil;
 
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
 import org.xutils.x;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 /**
  * Created by 李小白 on 2017/9/8.
@@ -26,32 +18,49 @@ import java.util.Map;
  */
 
 public class XHttp {
+    
+    
     public interface HttpCallBack {
         void onResponse(String result);
         
-        void onError();
+        void onError(String err);
         
         void onFinish();
     }
     
-    public static void post(RequestParams rp, final HttpCallBack httpCallBack) {
+    public static void post(final RequestParams rp, final HttpCallBack httpCallBack) {
         x.http().post(rp, new Callback.CacheCallback<String>() {
             @Override
             public void onSuccess(String result) {
-                if (httpCallBack != null)
-                    httpCallBack.onResponse(result);
+                LogUtil.minute(rp.getUri() + "\n" + result);
+                
+                
+                BaseEntity be = GsonUtils.gsonToEntity(result, BaseEntity.class);
+                if (be != null) {
+                    if (be.getFlag().getRetCode().equals("0") && be.getFlag().getRetMsg().equals("success")) {
+                        if (httpCallBack != null)
+                            httpCallBack.onResponse(result);
+                    } else {
+                        if (httpCallBack != null)
+                            httpCallBack.onError(be.getFlag().getRetMsg());
+                    }
+                } else {
+                    if (httpCallBack != null)
+                        httpCallBack.onError("无数据");
+                }
             }
             
             @Override
             public void onError(Throwable ex, boolean isOnCallback) {
+                LogUtil.minute(rp.getUri() + "\n" + ex);
                 if (httpCallBack != null)
-                    httpCallBack.onError();
+                    httpCallBack.onError(ex.getMessage());
             }
             
             @Override
             public void onCancelled(CancelledException cex) {
                 if (httpCallBack != null)
-                    httpCallBack.onError();
+                    httpCallBack.onError(cex.getMessage());
             }
             
             @Override
@@ -75,12 +84,12 @@ public class XHttp {
             
             @Override
             public void onError(Throwable ex, boolean isOnCallback) {
-                httpCallBack.onError();
+                httpCallBack.onError(ex.getMessage());
             }
             
             @Override
             public void onCancelled(CancelledException cex) {
-                httpCallBack.onError();
+                httpCallBack.onError(cex.getMessage());
             }
             
             @Override

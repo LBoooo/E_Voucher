@@ -8,7 +8,9 @@
     <integer name="base_height">1280</integer>
 
     <dimen name="title_height">100px</dimen>
+    <dimen name="tedbottompicker_grid_layout_margin">1dp</dimen>
 
+    <dimen name="tedbottompicker_selected_image_height">90dp</dimen>
 
 
     <string-array name="npv_lunar_year_without_measure_hint">
@@ -24,4 +26,12 @@
     <string name="year">年</string>
     <string name="month">月</string>
     <string name="day">日</string>
+
+    <string name="tedbottompicker_title">选择图片</string>
+    <string name="no_image">没有选择</string>
+    <string name="done">完成</string>
+
+
+    <string name="select_max_count">Already %1$d images selected</string>
+    <string name="select_min_count">You have to choice %1$d images</string>
 </resources>

@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical">
 
     <RelativeLayout
@@ -92,6 +93,8 @@
             android:id="@+id/mainAddView"
             android:layout_width="130px"
             android:layout_height="130px"
+            app:layout_auto_basewidth="height"
+            app:layout_auto_baseheight="width"
             android:layout_alignParentBottom="true"
             android:background="@drawable/shape_main_round_bg"
             android:gravity="center"

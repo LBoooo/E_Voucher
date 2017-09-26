@@ -66,6 +66,18 @@
         <attr name="glcv_NormalTextColor" format="reference|color" />
     </declare-styleable>
 
+    <declare-styleable name="TedBottomPickerImageView">
+        <attr name="foreground" format="reference"/>
+        <attr name="fit_mode" format="string"/>
+    </declare-styleable>
+
+
+
+    <declare-styleable name="TedBottomPickerSquareView">
+        <attr name="matchHeightToWidth" format="boolean"/>
+        <attr name="matchWidthToHeight" format="boolean"/>
+    </declare-styleable>
+
     <attr name="theme_color" format="reference"/>
     <attr name="theme_shape_color" format="reference"/>
     <attr name="theme_start_color" format="reference"/>

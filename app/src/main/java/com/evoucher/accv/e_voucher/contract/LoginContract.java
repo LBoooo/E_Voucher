@@ -10,15 +10,15 @@ import android.widget.EditText;
 public interface LoginContract {
     interface Model {
         void login(String account , String password , OnLoginListener listener );
-        void sign(String account , String password , onSignListener listener);
+//        void sign(String account , String password , onSignListener listener);
     }
     
     interface View {
         void loginSuccess();
         void loginFail(String err);
         
-        void signSuccess();
-        void signFail(String err);
+//        void signSuccess();
+//        void signFail(String err);
         
         void onButtonSate(boolean isCanClick);
     }
@@ -26,16 +26,16 @@ public interface LoginContract {
     interface Presenter {
         void onTextWatch(EditText e1 , EditText e2);
         void login(String account , String password, boolean isCheck);
-        void sign(String account , String password);
+//        void sign(String account , String password);
     }
     
     interface OnLoginListener{
         void loginSuccess();
-        void loginFail();
+        void loginFail(String err);
     }
     
-    interface onSignListener{
-        void signSuccess();
-        void signFail();
-    }
+//    interface onSignListener{
+//        void signSuccess();
+//        void signFail();
+//    }
 }
